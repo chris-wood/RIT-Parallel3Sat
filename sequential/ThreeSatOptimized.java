@@ -6,7 +6,7 @@ import java.io.File;
 
 
 /**
- * ThreeSatSeq.java
+ * ThreeSatOptimized.java
  *
  * Java program that solves a three-sat configuration (supplied or generated)
  * by applying a brute-force exhaustive search over all possible 
@@ -28,7 +28,7 @@ import java.io.File;
  * Line 3:  1 2 !3
  * etc...
  **/
-public class ThreeSat {
+public class ThreeSatOptimized {
 
     /**
      * The main method. Runs the program.
