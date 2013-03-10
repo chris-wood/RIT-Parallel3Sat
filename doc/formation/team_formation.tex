@@ -1,4 +1,4 @@
-\documentclass[paper=a4, fontsize=10pt]{scrartcl} % A4 paper and 11pt font size
+\documentclass[paper=a4, fontsize=11pt]{scrartcl} % A4 paper and 11pt font size
 \usepackage[left=2cm,top=1cm,right=2cm,nohead,nofoot]{geometry}
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
@@ -62,9 +62,9 @@
 \maketitle % Print the title
 
 \section{Problem Description}
-For our project we propose 3-SAT (or, more formally, 3-CNF-SAT), which 
+For our project we propose $3$-$SAT$ (or, more formally, $3$-$CNF$-$SAT$), which 
 is an NP-complete problem \cite{algs}. This is a decision problem in which takes 
-as input a 3-CNF Boolean formula and returns YES if the formula is 
+as input a $3$-$CNF$ Boolean formula and returns YES if the formula is 
 satisfiable, and NO otherwise. A 3-CNF formula, more formally known 
 as a Boolean formula in 3-conjunctive normal form, is expressed as the 
 Boolean AND of arbitrarily many clauses, where each clause is the Boolean 
@@ -75,25 +75,25 @@ into the literals of the formula will cause it to evaluate to true (or 1).
 Expressed as a formal language, we have that $3-SAT = \{\langle \phi \rangle : \phi \text{ is satisfiable } \}$.
 
 \section{Exhaustive Search Algorithms for $3$-$SAT$}
-An exhaustive search algorithm for solving the 3-SAT problem iterates over 
+An exhaustive search algorithm for solving the $3$-$SAT$ problem iterates over 
 every combination of variable truth values (of which there exists $2^n$ total 
 for n variables), substitutes (or assigns) them to the appropriate literal in each 
 clause, and then evaluates the formula to determine if it is satisfiable. If for 
 every possible variable truth assignment the formula does not evaluate to 
-true (or 1), then the exhaustive 3-SAT algorithm returns NO. Otherwise, 
-some satisfiable truth value assignment must exist, and so the 3-SAT algorithm 
+true (or 1), then the exhaustive $3$-$SAT$ algorithm returns NO. Otherwise, 
+some satisfiable truth value assignment must exist, and so the $3$-$SAT$ algorithm 
 returns YES. Formally, the exhaustive search algorithm is defined as follows:
 
 \section{Programs and Performance Metrics}
 The sequential and parallel programs we will deliver will take as input 
-the 3-CNF formula, encoded using the DIMACS CNF format, 
+the $3$-$CNF$ formula, encoded using the DIMACS $CNF$ format, 
 and output a single Boolean truth value indicating whether or not the 
-formula is satisfiable. The 3-CNF formula will be entered at the command 
+formula is satisfiable. The $3$-$CNF$ formula will be entered at the command 
 line or it will be read from a file to facilitate our experiments. Based on 
-the 3-SAT problem, each clause must have exactly three literals, so our 
+the $3$-$SAT$ problem, each clause must have exactly three literals, so our 
 program will enable the number of clauses and the number of variables 
-to be parameters defined in the DIMACS CNF format. An example the 
-3-CNF formula $(x_1 \lor x_2 \lor x_3)$ problem encoded using DIMACS is shown below.
+to be parameters defined in the DIMACS $CNF$ format. An example the 
+$3$-$CNF$ formula $(x_1 \lor x_2 \lor x_3)$ problem encoded using DIMACS is shown below.
 \begin{center}
 \begin{lstlisting}
 p cnf 3 1
@@ -101,11 +101,11 @@ p cnf 3 1
 \end{lstlisting}
 \end{center}
 There are two main parts of the exhaustive search algorithm for $3$-$SAT$: 
-reading in the 3-CNF formula and setting up the appropriate data structures, 
+reading in the $3$-$CNF$ formula and setting up the appropriate data structures, 
 and traversing and substituting all possible combinations of variable truth 
-assignments into the 3-CNF formula to check for satisfiability. Both the 
+assignments into the $3$-$CNF$ formula to check for satisfiability. Both the 
 sequential and parallel programs will share the first part so as to set up 
-the globally accessible data structures containing the 3-CNF formula. 
+the globally accessible data structures containing the $3$-$CNF$ formula. 
 This is a fixed amount of sequential overhead that must occur before any 
 satisfiability checks can begin. 
 
@@ -114,7 +114,7 @@ second part is an instance of an agenda parallel problem, where each
 task attempts to satisfy a specific truth value assignment. This is because 
 we are not concerned with all satisfiability results, we are only concerned 
 with the answer to the question for all truth value assignments, ``does this 
-truth value assignment satisfy the 3-CNF formula?'' Therefore, since we 
+truth value assignment satisfy the $3$-$CNF$ formula?'' Therefore, since we 
 are only seeking the output of one task that answers this question, and 
 there are no sequential dependencies between each task, we can divvy 
 up the execution of these $2^n$ tasks among $2^n$ virtual processors. When 
@@ -128,12 +128,15 @@ attempt to model our problem with Amdal's and Gustafson's Law, we will
 measure the execution time of the sequential and parallelizable parts of 
 the sequential and parallel programs. This will enable us to calculate the 
 total execution time and sequential fraction of the program. Using these 
-measurements, along with the problem size N (number of variables) and 
-number of processors K, we can evaluate the aforementioned metrics. 
+measurements, along with the problem size $N$ (number of variables) and 
+number of processors $K$, we can evaluate the aforementioned metrics. 
 
 \section{Literature Survey and Additional Resources}
 As part of the graduate requirement, we will analyze \cite{paper1}, \cite{paper2},
-and \cite{paper3}. 
+and \cite{paper3}. In addition, we will use the information and resources made available
+on the International SAT Competition web site \cite{satCompetition}, as well
+as the book by Drechsler et al. on advanced SAT solving techniques \cite{satBook}. 
+
 
 %%%%% REFERENCES %%%%%
 
@@ -141,11 +144,17 @@ and \cite{paper3}.
 
 \bibitem{algs} Gormen, Thomas H., Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein. Introduction to Algorithms. MIT Press 44 (1990), 97-138.
 
-\bibitem{paper1} Meyer, Quirin, et al. 3-SAT on CUDA: Towards a massively parallel SAT solver. \emph{High Performance Computing and Simulation (HPCS)}, 2010 International Conference on. IEEE, 2010.
+\bibitem{paper1} Meyer, Quirin, Fabian Sch\"{o}nfeld, Marc Stamminger, and Rolf Wanka. 3-SAT on CUDA: Towards a Massively Parallel SAT Solver. \emph{High Performance Computing and Simulation (HPCS)}, 2010 International Conference on. IEEE, 2010.
 
-\bibitem{paper2} Hamadi, Youssef, Said Jabbour, and Lakhdar Sais. ManySAT: A Parallel SAT Solver. \emph{Journal on Satisfiability, Boolean Modeling and Computation} 6.4 (2009): 245-262.
+\bibitem{paper2} Hamadi, Youssef, Said Jabbour, and Lakhdar Sais. ManySAT: A Parallel SAT Solver. \emph{Journal on Satisfiability, Boolean Modeling and Computation} 6.4 (2009) 245-262.
 
-\bibitem{paper3} Zhang, Hantao, Maria Paola Bonacina, and Jieh Hsiang. PSATO: A Distributed Propositional Prover and its Application to Quasigroup Problems. \emph{Journal of Symbolic Computation} 21.4 (1996): 543-560.
+\bibitem{paper3} Zhang, Hantao, Maria Paola Bonacina, and Jieh Hsiang. PSATO: A Distributed Propositional Prover and its Application to Quasigroup Problems. \emph{Journal of Symbolic Computation} 21.4 (1996) 543-560.
+
+\bibitem{satBook} Drechsler, Rolf and Stephan Eggersgl\"{u}b. High Quality Test Pattern Generation and Boolean Satisfiability. \emph{Springer}, 2012.
+
+\bibitem{satCompetition} The International SAT Competitions Web Page. {\tt http://www.satcompetition.org/}. Accessed: 3/9/2013.
+
+\bibitem{parallelComputing} Kaminsky, Alan. Building Parallel Programs: SMPs, Clusters, and Java. Cengage Course Technology, 2010. ISBN 1-4239-0198-3.
 
 \end{thebibliography}
 
