@@ -81,7 +81,7 @@ $3-SAT = \{\langle \phi \rangle : \phi \text{ is a satisfiable }3\text{-}CNF\tex
 (i.e. the set of all $3$-$CNF$ formula strings that are accepted by the 
 $3$-$SAT$ language if they are satisfiable).
 
-\section{Exhaustive Search Algorithms for $3$-$SAT$}
+\section{Exhaustive Search Algorithm for $3$-$SAT$}
 An exhaustive search algorithm for solving the $3$-$SAT$ 
 problem with input $\phi_n$ iterates over 
 all $2^n$ configurations of variable truth values, and for each 
@@ -118,10 +118,10 @@ values into $\phi_n$ to check for satisfiability. Both the
 sequential and parallel programs will share the first part so as to set up 
 the globally accessible data structures containing the $3$-$CNF$ formula. This is an unavoidable sequential task.
 
-The second part of the program can be done in parallel. More specifically, the 
-second part is an instance of an agenda parallel problem, where each 
-task evaluates a specific truth value assignment and returns the Boolean result
-and we are only concerned with the result from a single task (i.e. the one that returns true). 
+The second part of the program can be done sequentially or in parallel. 
+In a parallel program, this part is an instance of an agenda parallel problem, where each 
+task evaluates a specific truth value assignment and returns the Boolean result.
+Collectively, we are only concerned with the result from a single task (i.e. the one that returns true). 
 Therefore, since we are only seeking the result of an individual task, and
 there are no sequential dependencies that exist between each task, we can divvy 
 up the execution of these $2^n$ tasks among $2^n$ virtual processors. When 
