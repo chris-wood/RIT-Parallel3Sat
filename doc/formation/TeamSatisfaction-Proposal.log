@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  11 MAR 2013 16:32
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  11 MAR 2013 16:35
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**team_formation.tex
-(./team_formation.tex
+**TeamSatisfaction-Proposal.tex
+(./TeamSatisfaction-Proposal.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
 rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
@@ -471,8 +471,8 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \titlewidthlast=\dimen128
 \titlewidthfirst=\dimen129
 )
-(./team_formation.aux)
-\openout1 = `team_formation.aux'.
+(./TeamSatisfaction-Proposal.aux)
+\openout1 = `TeamSatisfaction-Proposal.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
 LaTeX Font Info:    ... okay on input line 63.
@@ -626,25 +626,26 @@ Underfull \hbox (badness 3965) in paragraph at lines 168--169
 t/m/n/10.95 http://www.satcompetition.org/\T1/futs/m/n/10.95 . Ac-cessed:
  []
 
-[2] (./team_formation.aux) ) 
+[2] (./TeamSatisfaction-Proposal.aux) ) 
 Here is how much of TeX's memory you used:
  5802 strings out of 493488
- 82097 string characters out of 3141326
+ 82196 string characters out of 3141326
  258589 words of memory out of 3000000
  8998 multiletter control sequences out of 15000+200000
  84098 words of font info for 109 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 35i,10n,47p,291b,934s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips
-/cm-super/cm-super-t1.enc}{/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/b
-ase/8r.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/fourier/fouri
-er-mlit.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/fourier/four
-ier-ms.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/adobe/utopia/putr8a.
-pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb></
-usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt1440.pfb>
-Output written on team_formation.pdf (2 pages, 120551 bytes).
+ 35i,10n,47p,302b,934s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/local/texlive/2012/texmf-dist/font
+s/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2012/texmf-dist/fonts/
+enc/dvips/base/8r.enc}</usr/local/texlive/2012/texmf-dist/fonts/type1/public/fo
+urier/fourier-mlit.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/f
+ourier/fourier-ms.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/adobe/uto
+pia/putr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/adobe/utopia/put
+ri8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sfsx14
+40.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt1095
+.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/public/cm-super/sftt1440.p
+fb>
+Output written on TeamSatisfaction-Proposal.pdf (2 pages, 120538 bytes).
 PDF statistics:
  41 PDF objects out of 1000 (max. 8388607)
  29 compressed objects within 1 object stream
