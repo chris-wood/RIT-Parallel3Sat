@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  26 MAR 2013 14:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  26 MAR 2013 22:21
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1224,11 +1224,11 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 ) [5
 
 ]
-<satSolverAlg.pdf, id=81, 364.36125pt x 176.91093pt>
+<satSolverAlg.pdf, id=81, 348.55219pt x 174.6525pt>
 File: satSolverAlg.pdf Graphic file (type pdf)
  <use satSolverAlg.pdf>
 Package pdftex.def Info: satSolverAlg.pdf used on input line 162.
-(pdftex.def)             Requested size: 291.48938pt x 141.52893pt.
+(pdftex.def)             Requested size: 278.8421pt x 139.72218pt.
 
 [6
 
@@ -1270,7 +1270,7 @@ ive/2012/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/201
 2/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2012/texmf
 -dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2012/texmf-dist/
 fonts/type1/urw/symbol/usyr.pfb>
-Output written on TeamSatisfaction_Presentation1.pdf (7 pages, 229984 bytes).
+Output written on TeamSatisfaction_Presentation1.pdf (7 pages, 230362 bytes).
 PDF statistics:
  162 PDF objects out of 1000 (max. 8388607)
  127 compressed objects within 2 object streams
