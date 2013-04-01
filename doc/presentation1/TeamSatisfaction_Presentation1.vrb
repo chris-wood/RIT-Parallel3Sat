@@ -1,46 +1,13 @@
-\frametitle{Exhaustive Search for $3$-$SAT$}
-% DESCRIBE exhaustive search algorithm for this problem
-% (in pseudocode)
-
-\textbf{Input:} $3$-$CNF$ formula $\phi_n$ on $n$ variables, \textbf{Output:} YES or NO
-
-\medskip
-
-\begin{algorithm}[H]
-\begin{algorithmic}[1]
-\STATE $C \gets 0^n$ (vector of $n$ 0, the initial configuration)
-\FOR{$r = 0 \to 2^n - 1$}
-\STATE $SAT \gets TRUE$
-\FORALL{$clause \in \phi_n$}
-\IF{$evaluate(clause, C) = FALSE$}
-\STATE $SAT \gets FALSE$
-\ENDIF
-%\COMMENT{$c$ is a tuple of three indices $(i,M),(j,M),(k,M)$ for variables $x_i, x_j, x_k$}
-% \IF{$(C[c[i][0]] \land c[i]]$ \lor C[c[j]] \lor C[c[k]] = False$}
-% \STATE $SAT \gets F$
-% \ENDIF
-\ENDFOR
-\STATE \textbf{if} $SAT = TRUE$ \textbf{then return} $YES$
-% \IF{$S = T$}
-% \RETURN $YES$
-% \ENDIF
-% \FOR{$i = 0 \to n - 1$}
-% \STATE Assign $C[i]$ to each literal of variable $i$ in $\phi_n$
-% \ENDFOR
-% \IF{$evaluate(\phi_n) = TRUE$}
-% \RETURN $YES$
-% \ENDIF
-\STATE $C \gets nextConfig(C)$
-\ENDFOR
-\RETURN $NO$
-\end{algorithmic}
-\caption{Exhaustive search for $3$-$SAT$.}
-\label{alg:seq}
-\end{algorithm}
-
-% input:
-% for each $2^n$ variable configuration
-% assign variable to literals in $\phi$
-% evaluate $\phi$
-% if (true) return YES
-% return NO
+\frametitle{Evaluating a Clause}
+\begin{itemize}
+\item Evaluating a clause depends on how $\phi_n$ and the variable truth assignments are stored.
+\begin{itemize}
+\item {\tt boolean[]} for variable assignments and {\tt Literal[][3]} for $\phi_n$.
+\end{itemize}
+\item A literal is true (meaning the clause is true), if one of the following hold:
+\begin{itemize}
+\item The literal is negated and its assignment is false.
+\item The literal is not negated and its assignment is true.
+\end{itemize}
+\item Two (fast) lookups and Boolean operations.
+\end{itemize}
