@@ -6,8 +6,12 @@ import edu.rit.pj.Comm;
 
 /**
  * Sequential implementation of the 3-SAT exhaustive search algorithm.
+ *
+ * @author Christopher Wood
+ * @author Eitan Romanoff
+ * @author Ankor Bajoria
  **/
-public class ThreeSatIterative 
+public class ThreeSat
 {
     // CNF formula parameters
     private static int numClauses;
@@ -60,8 +64,9 @@ public class ThreeSatIterative
 
                 // Read in the number of clauses and variables
                 numVars = Integer.parseInt(scanner.next());
+                System.out.println(numVars);
                 numClauses = Integer.parseInt(scanner.next());
-                scanner.skip("\n"); // end of the header line
+                System.out.println(numClauses);
 
                 // Initialize the formula and variable data structure
                 formula = new Literal[numClauses][3]; // 3 literals per clause
@@ -73,6 +78,10 @@ public class ThreeSatIterative
                     for (int i = 0; i < 3; i++) 
                     { 
                         int var = Integer.parseInt(scanner.next());
+                        if (var < 1 || var > numVars) 
+                        {
+                            System.err.println("Error: variables must be within [1," + numVars + "]");
+                        }
                         boolean negated = var < 0 ? true : false;
                         var = negated ? var * -1 : var;
                         Literal lit = new Literal(negated, var - 1);
@@ -82,7 +91,7 @@ public class ThreeSatIterative
             }
             catch (Exception e) 
             {
-                System.out.println("Error: " + e.getMessage());
+                System.err.println("Error: " + e.getMessage());
                 e.printStackTrace();
                 System.exit(-1);
             }
@@ -127,12 +136,12 @@ public class ThreeSatIterative
         }
 
         // Now exhaustively search for a solution (over all 2^V configurations).
-        numConfigurations = 1L; // K^V
+        numConfigurations = 1L; 
         for (int i = 0; i < numVars; ++ i)
         {
             numConfigurations *= 2;
         }
-        int numSatisfiable = 0;
+        int numSatisfiable = 0; // the number of satisfying solutions
         for (long config = 0L; config < numConfigurations; config++)
         {
             boolean formulaValue = true;
@@ -173,13 +182,13 @@ public class ThreeSatIterative
             // Go to next configuration.
             for (int i = 0; i < numVars; i++)
             {
-                variables[i] = !variables[i]; // negate and propagate
-                if (variables[i] == false)
+                if (variables[i] == true) 
+                {
+                    variables[i] = false;
+                }
+                else 
                 {
                     variables[i] = true;
-                }
-                else
-                {
                     break;
                 }
             }
