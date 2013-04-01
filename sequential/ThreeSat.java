@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 import edu.rit.pj.Comm;
+import java.util.Random;
 
 /**
  * Sequential implementation of the 3-SAT exhaustive search algorithm.
@@ -99,6 +100,25 @@ public class ThreeSat
         else 
         {
             // TODO: parse n/c/seed for randomly generated stuff
+            if (args.length < 6) {
+                showUsage();
+            }
+
+            numVars = Integer.parseInt(args[1]);
+            numClauses = Integer.parseInt(args[3]);
+            long seed = Long.parseLong(args[5]);
+
+            Random prng = new Random(seed);
+
+            formula = new Literal[numClauses][3]; // 3 literals per clause
+            variables = new boolean[numVars];
+
+            // Generate the formula
+            for (int i = 0; i < numClauses; i++) {
+                for (int j = 0; j < 3; j++) {
+                    formula[i][j] = new Literal(prng.nextBoolean(), prng.nextInt(numVars));
+                }
+            }
         }
 
         // Print the clause prettily (if in verbose mode)
