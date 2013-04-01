@@ -7,7 +7,8 @@
  * public so the caller does not have to access them
  * through method invocations.
  */
-public class Literal {
+public class Literal 
+{
     public boolean negated;
     public int id;
 
@@ -18,7 +19,8 @@ public class Literal {
      * @param neg - negation flag
      * @param i - variable ID
      */
-    public Literal(boolean neg, int i) {
+    public Literal(boolean neg, int i) 
+    {
         this.negated = neg;
         this.id = i;
     }
