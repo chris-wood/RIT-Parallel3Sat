@@ -10,7 +10,7 @@ import java.util.Random;
  *
  * @author Christopher Wood
  * @author Eitan Romanoff
- * @author Ankor Bajoria
+ * @author Ankur Bajoria
  **/
 public class ThreeSat
 {
