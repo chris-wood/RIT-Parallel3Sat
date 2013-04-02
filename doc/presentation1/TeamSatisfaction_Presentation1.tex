@@ -65,7 +65,7 @@
 	\medskip 
 
 	\textbf{Output}: $YES$ if there exists a variable truth assignment to the
-	variables in $\phi$ that will cause it to evaluate to true, $NO$ otherwise.
+	variables in $\phi$ such that it evaluates to true, $NO$ otherwise.
 
 	\medskip
 
@@ -84,8 +84,8 @@
 		\item Each input formula is in $3$-$CNF$ form:
 		\begin{itemize}
 			\item The conjunction (Boolean AND) of arbitrarily many clauses, 
-			where each clause is the disjunction (Boolean OR) of exactly three literals (a 
-			literal is a Boolean variable or its negation).
+			where each clause is the disjunction (Boolean OR) of exactly three literals 
+			(a Boolean variable or its negation).
 
 			\begin{align*}
 				(x_1 \lor x_2 \lor \lnot x_3) \land (x_1 \lor x_2 \lor x_3) \land (x_1 \lor x_2 \lor x_3)
@@ -110,33 +110,20 @@
 
 \begin{algorithm}[H]
 \begin{algorithmic}[1]
-\STATE $C \gets 0^n$ (vector of $n$ 0, the initial configuration)
-\FOR{$r = 0 \to 2^n - 1$}
+\STATE $C \gets FALSE^n$ (vector of $n$ False values, the initial configuration)
+\FOR{$i = 0 \to 2^n - 1$}
 	\STATE $SAT \gets TRUE$
 	\FORALL{$clause \in \phi_n$}
 		\IF{$evaluate(clause, C) = FALSE$}
 			\STATE $SAT \gets FALSE$
 		\ENDIF
-	%\COMMENT{$c$ is a tuple of three indices $(i,M),(j,M),(k,M)$ for variables $x_i, x_j, x_k$}
-%		\IF{$(C[c[i][0]] \land c[i]]$ \lor C[c[j]] \lor C[c[k]] = False$}
-%			\STATE $SAT \gets F$
-%		\ENDIF
 	\ENDFOR	
 	\STATE \textbf{if} $SAT = TRUE$ \textbf{then return} $YES$
-%	\IF{$S = T$}
-%		\RETURN $YES$
-%	\ENDIF
-%	\FOR{$i = 0 \to n - 1$}
-%		\STATE Assign $C[i]$ to each literal of variable $i$ in $\phi_n$
-%	\ENDFOR
-%	\IF{$evaluate(\phi_n) = TRUE$}
-%		\RETURN $YES$
-%	\ENDIF
 	\STATE $C \gets nextConfig(C)$
 \ENDFOR
 \RETURN $NO$
 \end{algorithmic}
-\caption{Exhaustive search for $3$-$SAT$.}
+%\caption{Exhaustive search for $3$-$SAT$.}
 \label{alg:seq}
 \end{algorithm}
 	
@@ -146,6 +133,22 @@
 %		evaluate $\phi$
 %		if (true) return YES
 %	return NO
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Evaluating a Clause}
+\begin{itemize}
+	\item Evaluating a clause depends on how $\phi_n$ and the variable truth assignments are stored.
+	\begin{itemize}
+		\item {\tt boolean[]} for variable assignments and {\tt Literal[][3]} for $\phi_n$.
+	\end{itemize}
+	\item A literal is true (meaning the clause is true), if one of the following hold:
+	\begin{itemize}
+		\item The literal is negated and its assignment is false.
+		\item The literal is not negated and its assignment is true.
+	\end{itemize}
+	\item Two (fast) lookups and Boolean operations.
+\end{itemize}
 \end{frame}
 
 \begin{frame}

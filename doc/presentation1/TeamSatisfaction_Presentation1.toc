@@ -1,4 +1,4 @@
 \beamer@endinputifotherversion {3.20pt}
 \beamer@sectionintoc {1}{Problem Statement}{3}{0}{1}
 \beamer@sectionintoc {2}{Exhaustive Search Algorithm}{5}{0}{2}
-\beamer@sectionintoc {3}{Sequential Program Demo}{7}{0}{3}
+\beamer@sectionintoc {3}{Sequential Program Demo}{8}{0}{3}
