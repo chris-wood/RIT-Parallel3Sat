@@ -110,7 +110,7 @@
 
 \begin{algorithm}[H]
 \begin{algorithmic}[1]
-\STATE $C \gets FALSE^n$ (vector of $n$ False values, the initial configuration)
+\STATE $C \gets FALSE^n$ (array of $n$ False values, the initial configuration)
 \FOR{$i = 0 \to 2^n - 1$}
 	\STATE $SAT \gets TRUE$
 	\FORALL{$clause \in \phi_n$}
@@ -135,6 +135,19 @@
 %	return NO
 \end{frame}
 
+\begin{frame}
+	\frametitle{Exhaustive Search for $3$-$SAT$ - A \emph{Very Satisfiable} Example!}
+\textbf{Input}: $\phi_5 = (\lnot X_1 \lor \lnot X_2 \lor \lnot X_3) \land (X_3 \lor \lnot X_4 \lor \lnot X_5)$ \\
+\textbf{Output}: Yes \\ 
+\textbf{Note}: no early termination once a satisfiable solution is found
+\begin{figure}
+\centering
+\includegraphics[scale = 0.8]{satSolverAlg.pdf}
+\end{figure}
+	% image of how the algorithm works 
+	% Array of truth values on left, arrows that point to literals, and then output truth value on the right
+\end{frame}
+
 \begin{frame}[fragile]
 	\frametitle{Evaluating a Clause}
 \begin{itemize}
@@ -148,20 +161,31 @@
 		\item The literal is not negated and its assignment is true.
 	\end{itemize}
 	\item Two (fast) lookups and Boolean operations.
+	
+if (formula[c][l].negated == true && !variables[formula[c][l].id])
+                    {
+                        clauseValue = true;
+                    } 
+                    else if (formula[c][l].negated == false && variables[formula[c][l].id])
+                    {
+                        clauseValue = true; 
+                    }
+                    
+                    boolean clauseValue = false;
+                for (int l = 0; l < 3 && clauseValue == false; l++) 
+                {
+                    // Clause is only true if at least one literal is true
+                    if (formula[c][l].negated == true && !variables[formula[c][l].id])
+                    {
+                        clauseValue = true;
+                    } 
+                    else if (formula[c][l].negated == false && variables[formula[c][l].id])
+                    {
+                        clauseValue = true; 
+                    }
+                }
+	
 \end{itemize}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Exhaustive Search for $3$-$SAT$ - A \emph{Very Satisfiable} Example!}
-\textbf{Input}: $\phi_5 = (\lnot X_1 \lor \lnot X_2 \lor \lnot X_3) \land (X_3 \lor \lnot X_4 \lor \lnot X_5)$ \\
-\textbf{Output}: Yes \\ 
-\textbf{Note}: no early termination once a satisfiable solution is found
-\begin{figure}
-\centering
-\includegraphics[scale = 0.8]{satSolverAlg.pdf}
-\end{figure}
-	% image of how the algorithm works 
-	% Array of truth values on left, arrows that point to literals, and then output truth value on the right
 \end{frame}
 
 \section{Sequential Program Demo}

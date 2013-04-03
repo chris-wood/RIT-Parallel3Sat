@@ -79,7 +79,7 @@ public class ThreeSat
                     for (int i = 0; i < 3; i++) 
                     { 
                         int var = Integer.parseInt(scanner.next());
-                        if (var < 1 || var > numVars) 
+                        if (var < 1 || var > numVars)  // fix
                         {
                             System.err.println("Error: variables must be within [1," + numVars + "]");
                         }
@@ -99,7 +99,6 @@ public class ThreeSat
         }
         else 
         {
-            // TODO: parse n/c/seed for randomly generated stuff
             if (args.length < 6) {
                 showUsage();
             }

@@ -1,8 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  1 APR 2013 15:31
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  2 APR 2013 18:02
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**TeamSatisfaction_Presentation1
+**TeamSatisfaction_Presentation1.tex
 (./TeamSatisfaction_Presentation1.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
@@ -1223,26 +1224,25 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 ) [5
 
 ]
+<satSolverAlg.pdf, id=81, 348.55219pt x 174.6525pt>
+File: satSolverAlg.pdf Graphic file (type pdf)
+ <use satSolverAlg.pdf>
+Package pdftex.def Info: satSolverAlg.pdf used on input line 149.
+(pdftex.def)             Requested size: 278.8421pt x 139.72218pt.
+
+[6
+
+ <./satSolverAlg.pdf>]
 \openout4 = `TeamSatisfaction_Presentation1.vrb'.
 
-
-(./TeamSatisfaction_Presentation1.vrb
+ (./TeamSatisfaction_Presentation1.vrb
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 5.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)) [6
+)) [7
 
-]
-<satSolverAlg.pdf, id=91, 348.55219pt x 174.6525pt>
-File: satSolverAlg.pdf Graphic file (type pdf)
- <use satSolverAlg.pdf>
-Package pdftex.def Info: satSolverAlg.pdf used on input line 165.
-(pdftex.def)             Requested size: 278.8421pt x 139.72218pt.
-
-[7
-
- <./satSolverAlg.pdf>] [8
+] [8
 
 ]
 \tf@nav=\write7
@@ -1256,7 +1256,8 @@ Package pdftex.def Info: satSolverAlg.pdf used on input line 165.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 191.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 191.
- (./TeamSatisfaction_Presentation1.aux)
+
+(./TeamSatisfaction_Presentation1.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 191.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 191.
 Package rerunfilecheck Info: File `TeamSatisfaction_Presentation1.out' has not 
@@ -1267,11 +1268,11 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 191.
 Here is how much of TeX's memory you used:
  18077 strings out of 493488
  330615 string characters out of 3141326
- 517112 words of memory out of 3000000
+ 517111 words of memory out of 3000000
  20858 multiletter control sequences out of 15000+200000
  87666 words of font info for 126 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 49i,17n,53p,415b,756s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 49i,17n,53p,419b,756s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/tex
@@ -1281,7 +1282,7 @@ ive/2012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012
 dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2012/texmf-dist/fo
 nts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/ty
 pe1/urw/symbol/usyr.pfb>
-Output written on TeamSatisfaction_Presentation1.pdf (8 pages, 239748 bytes).
+Output written on TeamSatisfaction_Presentation1.pdf (8 pages, 239754 bytes).
 PDF statistics:
  175 PDF objects out of 1000 (max. 8388607)
  137 compressed objects within 2 object streams
