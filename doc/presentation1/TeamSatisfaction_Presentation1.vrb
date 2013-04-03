@@ -2,12 +2,21 @@
 \begin{itemize}
 \item Evaluating a clause depends on how $\phi_n$ and the variable truth assignments are stored.
 \begin{itemize}
-\item {\tt boolean[]} for variable assignments and {\tt Literal[][3]} for $\phi_n$.
+\item {\tt boolean[] variables} for variable assignments and {\tt Literal[][3] formula} for $\phi_n$.
+\item A {\tt Literal} has a variable ID and negated flag
 \end{itemize}
-\item A literal is true (meaning the clause is true), if one of the following hold:
-\begin{itemize}
-\item The literal is negated and its assignment is false.
-\item The literal is not negated and its assignment is true.
 \end{itemize}
-\item Two (fast) lookups and Boolean operations.
-\end{itemize}
+{\small
+\begin{lstlisting}
+for (int c = 0; c < numClauses; c++) {
+    boolean clauseValue = false;
+    for (int l = 0; l < 3 && clauseValue == false; l++) {
+        if (formula[c][l].negated == true && !variables[formula[c][l].id])
+            clauseValue = true;
+        else if (formula[c][l].negated == false && variables[formula[c][l].id])
+            clauseValue = true;
+    }
+    // Check the value of the clause now...
+}
+\end{lstlisting}
+}

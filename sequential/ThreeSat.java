@@ -31,23 +31,14 @@ public class ThreeSat
     private static long endTime;
 
     // Enable verbose mode.
-    private static boolean verbose = true;
+    private static boolean verbose = false;
 
     /**
      * The main method. Runs the program.
      **/
     public static void main(String args[]) 
     {
-        try 
-        {
-            startTime = System.currentTimeMillis();
-            Comm.init(args);
-        }
-        catch (IOException e) 
-        {
-            System.err.println("Error initializing with Comm.");
-            System.exit(-1);
-        }
+        startTime = System.currentTimeMillis();
 
         if (args.length < 2) // TODO: change this...
         {
@@ -65,9 +56,7 @@ public class ThreeSat
 
                 // Read in the number of clauses and variables
                 numVars = Integer.parseInt(scanner.next());
-                System.out.println(numVars);
                 numClauses = Integer.parseInt(scanner.next());
-                System.out.println(numClauses);
 
                 // Initialize the formula and variable data structure
                 formula = new Literal[numClauses][3]; // 3 literals per clause
@@ -79,12 +68,13 @@ public class ThreeSat
                     for (int i = 0; i < 3; i++) 
                     { 
                         int var = Integer.parseInt(scanner.next());
+                        boolean negated = var < 0 ? true : false;
+                        var = negated ? var * -1 : var;
                         if (var < 1 || var > numVars)  // fix
                         {
                             System.err.println("Error: variables must be within [1," + numVars + "]");
+                            System.exit(-1);
                         }
-                        boolean negated = var < 0 ? true : false;
-                        var = negated ? var * -1 : var;
                         Literal lit = new Literal(negated, var - 1);
                         formula[c][i] = lit;
                     }
@@ -99,7 +89,8 @@ public class ThreeSat
         }
         else 
         {
-            if (args.length < 6) {
+            if (args.length < 6) // caw
+            {
                 showUsage();
             }
 
@@ -113,8 +104,10 @@ public class ThreeSat
             variables = new boolean[numVars];
 
             // Generate the formula
-            for (int i = 0; i < numClauses; i++) {
-                for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < numClauses; i++) 
+            {
+                for (int j = 0; j < 3; j++) 
+                {
                     formula[i][j] = new Literal(prng.nextBoolean(), prng.nextInt(numVars));
                 }
             }
@@ -158,7 +151,7 @@ public class ThreeSat
         numConfigurations = 1L; 
         for (int i = 0; i < numVars; ++ i)
         {
-            numConfigurations *= 2;
+            numConfigurations <<= 1;
         }
         int numSatisfiable = 0; // the number of satisfying solutions
         for (long config = 0L; config < numConfigurations; config++)
@@ -194,7 +187,7 @@ public class ThreeSat
                 System.out.println("FOUND SOLUTION");
                 for (int i = 0; i < numVars; i++)
                 {
-                    System.out.println(i + " - " + variables[i]);
+                    System.out.println((i + 1) + " - " + variables[i]);
                 } 
             }
 

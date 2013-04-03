@@ -7,6 +7,7 @@
 
 %\usepackage{algorithmic}
 \usepackage{amsmath}
+\usepackage{listings}
 \usepackage{amsthm}
 \usepackage{algorithm2e}
 \usepackage{algorithmic}
@@ -14,6 +15,17 @@
 \usepackage{xifthen}% http://ctan.org/pkg/xifthen
 \usepackage{needspace}% http://ctan.org/pkg/needspace
 \usepackage{hyperref}% http://ctan.org/pkg/hyperref
+
+\newcommand\Small{\fontsize{9}{9.2}\selectfont}
+\newcommand*\LSTfont{\Small\ttfamily\SetTracking{encoding=*}{-60}\lsstyle}
+
+\lstset{language=C,
+numberstyle=\footnotesize,
+basicstyle=\tiny\ttfamily,
+stepnumber=1,
+fontstyle=\small,
+frame=shadowbox,
+breaklines=true}
 
 \newcommand{\field}[1]{\mathbb{#1}} %requires amsfonts
 
@@ -60,17 +72,21 @@
 
 	\medskip
 
-	\textbf{Input}: Boolean formula $\phi$ on $n$ variables.
+	\textbf{Input}: Boolean formula $\phi_n$ on $n$ variables.
+	
+	\begin{align*}
+		\phi_5 = (x_1 \lor x_2 \lor \lnot x_3) \lor \lnot x_4 \land x_5 \land (\lnot x_2 \lor x_3 \land (x_4 \land x_1))
+	\end{align*}
 
 	\medskip 
 
 	\textbf{Output}: $YES$ if there exists a variable truth assignment to the
-	variables in $\phi$ such that it evaluates to true, $NO$ otherwise.
+	variables in $\phi_n$ such that it evaluates to true, $NO$ otherwise.
 
 	\medskip
 
 	\begin{center}
-		$\phi$ is satisfiable $\Leftrightarrow$ $SAT(\phi) = YES$
+		$\phi_n$ is satisfiable $\Leftrightarrow$ $SAT(\phi_n) = YES$
 	\end{center}
 
 \end{frame}
@@ -80,17 +96,15 @@
 \begin{frame}
 	\frametitle{$3$-$SAT \in NP$}
 	\begin{itemize}
-		\item A special case of $SAT$ that fixes the format of $\phi$.
+		\item A special case of $SAT$ that fixes the format of $\phi_n$.
 		\item Each input formula is in $3$-$CNF$ form:
 		\begin{itemize}
 			\item The conjunction (Boolean AND) of arbitrarily many clauses, 
 			where each clause is the disjunction (Boolean OR) of exactly three literals 
 			(a Boolean variable or its negation).
-
 			\begin{align*}
-				(x_1 \lor x_2 \lor \lnot x_3) \land (x_1 \lor x_2 \lor x_3) \land (x_1 \lor x_2 \lor x_3)
+				(x_1 \lor x_2 \lor \lnot x_3) \land (\lnot x_1 \lor x_2 \lor x_3) \land (\lnot x_1 \lor x_2 \lor \lnot x_3)
 			\end{align*}
-
 		\end{itemize}
 		\item $SAT$ reduces to $3$-$SAT$, so $3$-$SAT \in NP$.
 	\end{itemize}
@@ -101,9 +115,6 @@
 \section{Exhaustive Search Algorithm}
 \begin{frame}[fragile]
 	\frametitle{Exhaustive Search for $3$-$SAT$}
-	% DESCRIBE exhaustive search algorithm for this problem
-	% (in pseudocode)
-	
 \textbf{Input:} $3$-$CNF$ formula $\phi_n$ on $n$ variables, \textbf{Output:} YES or NO 
 
 \medskip
@@ -153,39 +164,24 @@
 \begin{itemize}
 	\item Evaluating a clause depends on how $\phi_n$ and the variable truth assignments are stored.
 	\begin{itemize}
-		\item {\tt boolean[]} for variable assignments and {\tt Literal[][3]} for $\phi_n$.
+		\item {\tt boolean[] variables} for variable assignments and {\tt Literal[][3] formula} for $\phi_n$.
+		\item A {\tt Literal} has a variable ID and negated flag
 	\end{itemize}
-	\item A literal is true (meaning the clause is true), if one of the following hold:
-	\begin{itemize}
-		\item The literal is negated and its assignment is false.
-		\item The literal is not negated and its assignment is true.
-	\end{itemize}
-	\item Two (fast) lookups and Boolean operations.
-	
-if (formula[c][l].negated == true && !variables[formula[c][l].id])
-                    {
-                        clauseValue = true;
-                    } 
-                    else if (formula[c][l].negated == false && variables[formula[c][l].id])
-                    {
-                        clauseValue = true; 
-                    }
-                    
-                    boolean clauseValue = false;
-                for (int l = 0; l < 3 && clauseValue == false; l++) 
-                {
-                    // Clause is only true if at least one literal is true
-                    if (formula[c][l].negated == true && !variables[formula[c][l].id])
-                    {
-                        clauseValue = true;
-                    } 
-                    else if (formula[c][l].negated == false && variables[formula[c][l].id])
-                    {
-                        clauseValue = true; 
-                    }
-                }
-	
 \end{itemize}
+{\small
+\begin{lstlisting}
+for (int c = 0; c < numClauses; c++) {
+    boolean clauseValue = false;
+    for (int l = 0; l < 3 && clauseValue == false; l++) {
+        if (formula[c][l].negated == true && !variables[formula[c][l].id])
+            clauseValue = true;
+        else if (formula[c][l].negated == false && variables[formula[c][l].id])
+            clauseValue = true; 
+    }
+    // Check the value of the clause now...
+}
+\end{lstlisting}
+}
 \end{frame}
 
 \section{Sequential Program Demo}
@@ -196,6 +192,14 @@ if (formula[c][l].negated == true && !variables[formula[c][l].id])
 		\begin{align*}
 			\phi_5 = (\lnot X_1 \lor \lnot X_2 \lor \lnot X_3) \land (X_3 \lor \lnot X_4 \lor \lnot X_5)
 		\end{align*}
+	\end{center}
+\end{frame}
+
+\section{Questions}
+\begin{frame}
+	\frametitle{Questions?}
+	\begin{center}
+		Fire away!
 	\end{center}
 \end{frame}
 
