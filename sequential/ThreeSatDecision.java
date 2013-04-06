@@ -5,6 +5,9 @@ import java.io.IOException;
 import edu.rit.pj.Comm;
 import edu.rit.util.Random;
 
+// TODO: hotspot performance improvements
+// TODO: design sketch
+
 /**
  * Sequential implementation of the 3-SAT exhaustive search algorithm.
  *
@@ -41,16 +44,30 @@ public class ThreeSatDecision
         // TODO: Comm.init here
 
         // Parse the command line arguments
-        if (args.length < 2) // [-f fileName | numVars 
+        ThreeSatDecision sat = null;
+        try
         {
+            if (args.length == 1)
+            {
+                sat = new ThreeSatDecision(args[0]); 
+            }
+            else if (args.length == 3)
+            {
+                sat = new ThreeSatDecision(Integer.parseInt(args[0]),
+                    Integer.parseInt(args[1]), Long.parseLong(args[2]));
+            }
+            else
+            {
+                showUsage();
+            }
+        }
+        catch (NumberFormatException e) 
+        {
+            System.err.println("Error: num_vars, num_clauses, and seed must be integers.");
             showUsage();
         }
 
-        // TODO: do the command line parsing here, pass only results to the constructor...
-
-        // Create the problem instance and then decide if the
-        // freshly created formula is solvable.
-        ThreeSatDecision sat = new ThreeSatDecision(args);
+        // Run the decision algorithm and display the result.
         boolean result = sat.decide();
         if (result)
         {
@@ -66,113 +83,81 @@ public class ThreeSatDecision
         System.out.println((endTime - startTime) + "msec");
     }
 
-    public ThreeSat(String[] args)
+    /**
+     * Constructor to generate a 3-CNF formula from an external file.
+     */
+    public ThreeSatDecision(String filename)
     {
-        // Read in from a DIMACS formatted file
-        if (args[0].equals("-f")) 
+        try 
         {
-            String filename = args[1];
-            try 
+            File file = new File(filename);
+            Scanner scanner = new Scanner(file);
+
+            // Read in the number of clauses and variables
+            this.numVars = Integer.parseInt(scanner.next());
+            this.numClauses = Integer.parseInt(scanner.next());
+
+            // Initialize the formula and variable data structure
+            this.formula = new Literal[numClauses][3]; // 3 literals per clause
+            this.variables = new boolean[numVars];
+
+            // Now read in all of the clauses.
+            for (int c = 0; c < numClauses; c++) 
             {
-                File file = new File(filename);
-                Scanner scanner = new Scanner(file);
-
-                // Read in the number of clauses and variables
-                numVars = Integer.parseInt(scanner.next());
-                numClauses = Integer.parseInt(scanner.next());
-
-                // Initialize the formula and variable data structure
-                formula = new Literal[numClauses][3]; // 3 literals per clause
-                variables = new boolean[numVars];
-
-                // Now read in all of the clauses.
-                for (int c = 0; c < numClauses; c++) 
-                {
-                    for (int i = 0; i < 3; i++) 
-                    { 
-                        int var = Integer.parseInt(scanner.next());
-                        boolean negated = var < 0 ? true : false;
-                        var = negated ? var * -1 : var;
-                        if (var < 1 || var > numVars)  // fix
-                        {
-                            System.err.println("Error: variables must be within [1," + numVars + "]");
-                            System.exit(-1);
-                        }
-                        Literal lit = new Literal(negated, var - 1);
-                        formula[c][i] = lit;
-                    }
-                }
-            }
-            catch (Exception e) 
-            {
-                System.err.println("Error: " + e.getMessage());
-                e.printStackTrace();
-                System.exit(-1);
-            }
-        }
-        else 
-        {
-            if (args.length < 6) 
-            {
-                showUsage();
-            }
-
-            numVars = Integer.parseInt(args[1]);
-            numClauses = Integer.parseInt(args[3]);
-            long seed = Long.parseLong(args[5]);
-
-            Random prng = Random.getInstance(seed);
-
-            formula = new Literal[numClauses][3]; // 3 literals per clause
-            variables = new boolean[numVars];
-
-            // Generate the formula
-            for (int i = 0; i < numClauses; i++) 
-            {
-                for (int j = 0; j < 3; j++) 
-                {
-                    formula[i][j] = new Literal(prng.nextBoolean(), prng.nextInt(numVars));
-                }
-            }
-        }
-
-        // Print the clause prettily (if in verbose mode)
-        if (verbose) 
-        {
-            System.out.println("Looking for a solution to the following problem:");
-            for (int i = 0; i < numClauses; i++) 
-            {
-                System.out.print("(");
-                for (int j = 0; j < 3; j++) 
-                {
-                    if (formula[i][j].negated == false) 
+                for (int i = 0; i < 3; i++) 
+                { 
+                    int var = Integer.parseInt(scanner.next());
+                    boolean negated = var < 0 ? true : false;
+                    var = negated ? var * -1 : var;
+                    if (var < 1 || var > numVars)  // fix
                     {
-                        System.out.print("!");
+                        System.err.println("Error: variables must be within [1," + numVars + "]");
+                        System.exit(-1);
                     }
-                    System.out.print("" + formula[i][j].id);
-                    if (j != 2) 
-                    {
-                        System.out.print(" || ");
-                    }
-                }
-                System.out.print(")");
-                if (i != numClauses - 1) 
-                {
-                    System.out.print(" && ");
+                    Literal lit = new Literal(negated, var - 1);
+                    formula[c][i] = lit;
                 }
             }
-            System.out.println("");
         }
-
-        // Initialize all variables to false.
-        for (int i = 0; i < numVars; i++) 
+        catch (Exception e) 
         {
-            variables[i] = false;
+            System.err.println("Error: " + e.getMessage());
+            e.printStackTrace();
+            System.exit(-1);
+        }
+    }
+
+    /**
+     * Constructor to generate a random 3-CNF formula for solving.
+     */
+    public ThreeSatDecision(int numVars, int numClauses, long seed)
+    {
+        this.numVars = numVars;
+        this.numClauses = numClauses;
+
+        // Initialize the PRNG and the formula/variable data structures
+        Random prng = Random.getInstance(seed);
+        formula = new Literal[numClauses][3]; // 3 literals per clause
+        variables = new boolean[numVars];
+
+        // Randomly generate the formula the formula
+        for (int i = 0; i < numClauses; i++) 
+        {
+            for (int j = 0; j < 3; j++) 
+            {
+                formula[i][j] = new Literal(prng.nextBoolean(), prng.nextInt(numVars));
+            }
         }
     }
 
     public boolean decide() 
     {
+        // Initialize all variables to false.
+        for (int i = 0; i < numVars; i++) 
+        {
+            variables[i] = false;
+        }
+
         // Now exhaustively search for a solution (over all 2^V configurations).
         numConfigurations = 1L; 
         for (int i = 0; i < numVars; ++ i)
@@ -238,7 +223,7 @@ public class ThreeSatDecision
      */
     public static void showUsage() 
     {
-        System.err.println("java ThreeSatDecision [-n <num_literals> -c <num_clauses> -s <seed> | -f <file>] ");
+        System.err.println("java ThreeSatDecision [<file> | <num_literals> <num_clauses> <seed>]");
         System.exit(-1);
     }
 }
