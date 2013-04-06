@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 import edu.rit.pj.Comm;
-import java.util.Random;
+import edu.rit.util.Random;
 
 /**
  * Sequential implementation of the 3-SAT exhaustive search algorithm.
@@ -12,39 +12,62 @@ import java.util.Random;
  * @author Eitan Romanoff
  * @author Ankur Bajoria
  **/
-public class ThreeSat
+public class ThreeSatDecision
 {
     // CNF formula parameters
-    private static int numClauses;
-    private static int numVars;
+    private int numClauses;
+    private int numVars;
 
     // Clause collection
-    private static Literal[][] formula;
+    private Literal[][] formula;
 
     // Boolean configuration collection
-    private static boolean[] variables;
+    private boolean[] variables;
 
-    private static long numConfigurations;
+    private long numConfigurations;
 
     // Global timing variables
     private static long startTime;
     private static long endTime;
-
-    // Enable verbose mode.
-    private static boolean verbose = false;
 
     /**
      * The main method. Runs the program.
      **/
     public static void main(String args[]) 
     {
+        // Start the clock.
         startTime = System.currentTimeMillis();
 
-        if (args.length < 2) // TODO: change this...
+        // TODO: Comm.init here
+
+        // Parse the command line arguments
+        if (args.length < 2) // [-f fileName | numVars 
         {
             showUsage();
         }
 
+        // TODO: do the command line parsing here, pass only results to the constructor...
+
+        // Create the problem instance and then decide if the
+        // freshly created formula is solvable.
+        ThreeSatDecision sat = new ThreeSatDecision(args);
+        boolean result = sat.decide();
+        if (result)
+        {
+            System.out.println("Yes.");
+        }
+        else
+        {
+            System.out.println("No.");
+        }
+
+        // Stop the clock and display the time.
+        endTime = System.currentTimeMillis();
+        System.out.println((endTime - startTime) + "msec");
+    }
+
+    public ThreeSat(String[] args)
+    {
         // Read in from a DIMACS formatted file
         if (args[0].equals("-f")) 
         {
@@ -89,7 +112,7 @@ public class ThreeSat
         }
         else 
         {
-            if (args.length < 6) // caw
+            if (args.length < 6) 
             {
                 showUsage();
             }
@@ -98,7 +121,7 @@ public class ThreeSat
             numClauses = Integer.parseInt(args[3]);
             long seed = Long.parseLong(args[5]);
 
-            Random prng = new Random(seed);
+            Random prng = Random.getInstance(seed);
 
             formula = new Literal[numClauses][3]; // 3 literals per clause
             variables = new boolean[numVars];
@@ -146,7 +169,10 @@ public class ThreeSat
         {
             variables[i] = false;
         }
+    }
 
+    public boolean decide() 
+    {
         // Now exhaustively search for a solution (over all 2^V configurations).
         numConfigurations = 1L; 
         for (int i = 0; i < numVars; ++ i)
@@ -154,6 +180,8 @@ public class ThreeSat
             numConfigurations <<= 1;
         }
         int numSatisfiable = 0; // the number of satisfying solutions
+
+        // Now check all possible configurations for a satisfying assignment
         for (long config = 0L; config < numConfigurations; config++)
         {
             boolean formulaValue = true;
@@ -180,18 +208,14 @@ public class ThreeSat
                 }
             }
 
-            // If satisfiable, print this result.
+            // If satisfiable, return right away. Otherwise, go to
+            // the next configuration.
             if (formulaValue) 
             {
-                numSatisfiable++;
-                System.out.println("FOUND SOLUTION");
-                for (int i = 0; i < numVars; i++)
-                {
-                    System.out.println((i + 1) + " - " + variables[i]);
-                } 
+                return true;
             }
 
-            // Go to next configuration.
+            // Propagate the truth value throughout the collection.
             for (int i = 0; i < numVars; i++)
             {
                 if (variables[i] == true) 
@@ -206,17 +230,7 @@ public class ThreeSat
             }
         }
 
-        // Print out the satisfiable or not.
-        if (numSatisfiable > 0) 
-        {
-            System.out.println("Yes, with " + numSatisfiable + " satisfying configurations.");
-        } 
-        else 
-        {   
-            System.out.println("No.");
-        }
-        endTime = System.currentTimeMillis();
-        System.out.println("Elapsed time: " + (endTime - startTime) + "msec");
+        return false; // No satisfying solution exists...
     }
 
     /**
@@ -224,7 +238,7 @@ public class ThreeSat
      */
     public static void showUsage() 
     {
-        System.err.println("java ThreeSatIterative [-n <num_literals> -c <num_clauses> -s <seed> | -f <file>] ");
+        System.err.println("java ThreeSatDecision [-n <num_literals> -c <num_clauses> -s <seed> | -f <file>] ");
         System.exit(-1);
     }
 }
