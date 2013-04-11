@@ -2,3 +2,9 @@
 *.fdb_latexmk
 *.fls
 *.gitignore
+parallel/runsmp
+parallel/setup
+parallel/*.jar
+parallel/compile
+*.DS_Store*
+doc/.DS_Store
