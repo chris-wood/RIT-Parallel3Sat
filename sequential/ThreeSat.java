@@ -139,7 +139,7 @@ public class ThreeSat
                 }
             }
             System.out.println("");
-        }   
+        }
 
         // Initialize all variables to false.
         for (int i = 0; i < numVars; i++) 
@@ -180,7 +180,7 @@ public class ThreeSat
                 }
             }
 
-            // If satisfiable, print this result
+            // If satisfiable, print this result.
             if (formulaValue) 
             {
                 numSatisfiable++;
