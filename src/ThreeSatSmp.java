@@ -64,6 +64,11 @@ public class ThreeSatSmp
             System.err.println("Error: num_vars, num_clauses, and seed must be integers.");
             showUsage();
         }
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+            showUsage();
+        }
 
         // Run the decision algorithm and display the result.
         boolean satisfiable = sat.decide();
@@ -94,6 +99,11 @@ public class ThreeSatSmp
             // Read in the number of clauses and variables
             this.numVars = Integer.parseInt(scanner.next());
             this.numClauses = Integer.parseInt(scanner.next());
+
+            if (numVars < 1 || numClauses < 1)
+            {
+                throw new Exception("Error: num_vars and num_clauses must be positive integers.");
+            }
 
             // Initialize the formula and variable data structure
             this.formula = new Literal[numClauses][3]; // 3 literals per clause
@@ -131,6 +141,11 @@ public class ThreeSatSmp
     {
         this.numVars = numVars;
         this.numClauses = numClauses;
+
+        if (numVars < 1 || numClauses < 1)
+        {
+            throw new Exception("Error: num_vars and num_clauses must be positive integers.");
+        }
 
         // Initialize the PRNG and the formula/variable data structures
         Random prng = Random.getInstance(seed);
@@ -186,15 +201,6 @@ public class ThreeSatSmp
 
                             for (long config = first; config <= last && numSatisfiable == 0; config++)
                             {
-
-                            //     synchronized(System.out) {
-                            //     System.out.print("Config: ");
-                            //     for (int i = 0; i < numVars; i++) {
-                            //         System.out.print(variables[i]  + " ");
-                            //     }
-                            //     System.out.println();
-                            // }
-
                                 boolean formulaValue = true;
                                 for (int c = 0; c < numClauses; c++) 
                                 {
@@ -222,7 +228,6 @@ public class ThreeSatSmp
                                 // If satisfiable, print this result
                                 if (formulaValue) 
                                 {
-                                    System.out.println("Found one...");
                                     int tmp = numSatisfiable + 1;
                                     numSatisfiable = tmp; // JVM guarantees atomic set
                                 }
@@ -247,7 +252,8 @@ public class ThreeSatSmp
             }); // End team.execute()
         }
         catch (Exception e) {
-            System.err.println("Something bad happened during the parallel portion!");
+            System.err.println("Error occurred during the parallel team's execution.");
+            System.err.println(e.printStackTrace());
             e.printStackTrace();
         }
 

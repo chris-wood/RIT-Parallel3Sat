@@ -9,7 +9,8 @@ import edu.rit.pj.ParallelRegion;
 import edu.rit.pj.LongForLoop;
 
 /**
- * Sequential implementation of the 3-SAT exhaustive search algorithm.
+ * Parallel implementation of the 3-SAT exhaustive search algorithm
+ * for SMP machines.
  *
  * @author Christopher Wood
  * @author Eitan Romanoff

@@ -60,6 +60,11 @@ public class ThreeSatSeq
         {
             System.err.println("Error: num_vars, num_clauses, and seed must be integers.");
             showUsage();
+        } 
+        catch (Exception e)
+        {
+            System.err.println(e.getMessage());
+            showUsage();
         }
 
         // Run the decision algorithm and display the result.
@@ -91,6 +96,11 @@ public class ThreeSatSeq
             // Read in the number of clauses and variables
             this.numVars = Integer.parseInt(scanner.next());
             this.numClauses = Integer.parseInt(scanner.next());
+
+            if (numVars < 1 || numClauses < 1)
+            {
+                throw new Exception("Error: num_vars and num_clauses must be positive integers.");
+            }
 
             // Initialize the formula and variable data structure
             this.formula = new Literal[numClauses][3]; // 3 literals per clause
@@ -129,6 +139,11 @@ public class ThreeSatSeq
     {
         this.numVars = numVars;
         this.numClauses = numClauses;
+
+        if (numVars < 1 || numClauses < 1)
+        {
+            throw new Exception("Error: num_vars and num_clauses must be positive integers.");
+        }
 
         // Initialize the PRNG and the formula/variable data structures
         Random prng = Random.getInstance(seed);
