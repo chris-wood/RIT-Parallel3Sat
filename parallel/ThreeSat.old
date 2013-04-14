@@ -11,7 +11,6 @@ import edu.rit.pj.LongForLoop;
 import edu.rit.pj.Comm;
 import edu.rit.pj.reduction.SharedBoolean;
 
-
 /**
  * Sequential implementation of the 3-SAT exhaustive search algorithm.
  *
