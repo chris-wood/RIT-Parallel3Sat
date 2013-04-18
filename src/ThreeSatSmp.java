@@ -186,6 +186,9 @@ public class ThreeSatSmp
                     {
                         public void run(long first, long last) 
                         {
+                            Literal[] formula_c;
+                            int t_numSatisfiable = 0;
+
                             // Initialize the variable configuration based on 
                             // the configuration index.
                             boolean[] variables = new boolean[numVars];
@@ -206,15 +209,16 @@ public class ThreeSatSmp
                                 boolean formulaValue = true;
                                 for (int c = 0; c < numClauses; c++) 
                                 {
+                                    formula_c = formula[c];
                                     boolean clauseValue = false;
                                     for (int l = 0; l < 3 && clauseValue == false; l++) 
                                     {
                                         // A clause is only true if at least one literal is true
-                                        if (formula[c][l].negated == true && !variables[formula[c][l].id])
+                                        if (formula_c[l].negated == true && !variables[formula_c[l].id])
                                         {
                                             clauseValue = true;
-                                        } 
-                                        else if (formula[c][l].negated == false && variables[formula[c][l].id])
+                                        }
+                                        else if (formula_c[l].negated == false && variables[formula_c[l].id])
                                         {
                                             clauseValue = true; 
                                         }

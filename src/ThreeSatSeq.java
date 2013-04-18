@@ -111,6 +111,7 @@ public class ThreeSatSeq
             // Now read in all of the clauses.
             for (int c = 0; c < numClauses; c++) 
             {
+                Literal[] formula_c = formula[c];
                 for (int i = 0; i < 3; i++) 
                 { 
                     int var = Integer.parseInt(scanner.next());
@@ -122,7 +123,7 @@ public class ThreeSatSeq
                         System.exit(-1);
                     }
                     Literal lit = new Literal(negated, var - 1);
-                    formula[c][i] = lit;
+                    formula_c[i] = lit;
                 }
             }
         }
