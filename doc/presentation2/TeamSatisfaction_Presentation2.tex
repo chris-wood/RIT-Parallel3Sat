@@ -1,0 +1,323 @@
+\documentclass[handout]{beamer}
+
+\usepackage{beamerthemesplit}
+\usepackage{pgfpages}
+\usepackage{verbatim}
+\usepackage{fancybox}
+
+%\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{amsthm}
+\usepackage{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\usepackage{xifthen}% http://ctan.org/pkg/xifthen
+\usepackage{needspace}% http://ctan.org/pkg/needspace
+\usepackage{hyperref}% http://ctan.org/pkg/hyperref
+
+\newcommand\Small{\fontsize{9}{9.2}\selectfont}
+\newcommand*\LSTfont{\Small\ttfamily\SetTracking{encoding=*}{-60}\lsstyle}
+
+\lstset{language=C,
+numberstyle=\footnotesize,
+basicstyle=\tiny\ttfamily,
+stepnumber=1,
+fontstyle=\small,
+frame=shadowbox,
+breaklines=true}
+
+\newcommand{\field}[1]{\mathbb{#1}} %requires amsfonts
+
+% Multiple pages...
+%\pgfpagesuselayout{4 on 1}
+
+\usetheme{Antibes}
+\usecolortheme{beaver}
+\title[Team Satisfaction - $3$-$SAT$]{The $3$-$SAT$ Decision Problem \\ Towards a Parallel Search Implementation}
+
+\usepackage{mathptmx}
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+\usepackage[T1]{fontenc}
+
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+\institute[RIT]{}
+\date{\today}
+\subtitle{Team Satisfaction}
+\author{Christopher Wood, Eitan Romanoff, Ankur Bajoria}
+%\institute[]{}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}
+	\frametitle{Agenda}
+	\tableofcontents
+\end{frame}
+
+\section{Problem Statement}
+\begin{frame}
+	\frametitle{Boolean Satisfiability}
+
+	Boolean satisfiability is an $NP$-complete decision problem defined as:
+	\begin{align*}
+	SAT : \phi \to \{YES, NO\}
+	\end{align*}
+
+	\medskip
+
+	\textbf{Input}: Boolean formula $\phi_n$ on $n$ variables.
+	
+	\begin{align*}
+		\phi_5 = (x_1 \lor x_2 \lor \lnot x_3) \lor \lnot x_4 \land x_5 \land (\lnot x_2 \lor x_3 \land (x_4 \land x_1))
+	\end{align*}
+
+	\medskip 
+
+	\textbf{Output}: $YES$ if there exists a truth assignment to the
+	variables in $\phi_n$ such that it evaluates to true, $NO$ otherwise.
+
+	\medskip
+
+	\begin{center}
+		$\phi_n$ is satisfiable $\Leftrightarrow$ $SAT(\phi_n) = YES$
+	\end{center}
+
+\end{frame}
+
+% TODO: give a sample circuit of the problem
+
+\begin{frame}
+	\frametitle{$3$-$SAT \in NP$}
+	\begin{itemize}
+		\item A special case of $SAT$ that fixes the format of $\phi_n$.
+		\item Each input formula is in $3$-$CNF$ form:
+		\begin{itemize}
+			\item The conjunction (Boolean AND) of arbitrarily many clauses, 
+			where each clause is the disjunction (Boolean OR) of exactly three literals 
+			(a Boolean variable or its negation).
+			\begin{align*}
+				(x_1 \lor x_2 \lor \lnot x_3) \land (\lnot x_1 \lor x_2 \lor x_3) \land (\lnot x_1 \lor x_2 \lor \lnot x_3)
+			\end{align*}
+		\end{itemize}
+		\item $SAT$ reduces to $3$-$SAT$, so $3$-$SAT \in NP$.
+	\end{itemize}
+\end{frame}
+
+% TODO: give example of 3-CNF formula
+% Introduce the team members.
+% Briefly describe your NP problem.
+% Briefly describe the exhaustive search algorithm for your problem.
+
+\section{Exhaustive Search Algorithm}
+\begin{frame}[fragile]
+	\frametitle{Exhaustive Search for $3$-$SAT$}
+\textbf{Input:} $3$-$CNF$ formula $\phi_n$ on $n$ variables, \textbf{Output:} YES or NO 
+
+\medskip
+
+\begin{algorithm}[H]
+\begin{algorithmic}[1]
+\STATE $C \gets FALSE^n$ (array of $n$ False values, the initial configuration)
+\FOR{$i = 0 \to 2^n - 1$}
+	\STATE $SAT \gets TRUE$
+	\FORALL{$clause \in \phi_n$}
+		\IF{$evaluate(clause, C) = FALSE$}
+			\STATE $SAT \gets FALSE$
+		\ENDIF
+	\ENDFOR	
+	\STATE \textbf{if} $SAT = TRUE$ \textbf{then return} $YES$
+	\STATE $C \gets nextConfig(C)$
+\ENDFOR
+\RETURN $NO$
+\end{algorithmic}
+%\caption{Exhaustive search for $3$-$SAT$.}
+\label{alg:seq}
+\end{algorithm}
+	
+%	input: 
+%	for each $2^n$ variable configuration
+%		assign variable to literals in $\phi$ 
+%		evaluate $\phi$
+%		if (true) return YES
+%	return NO
+\end{frame}
+
+\begin{frame}
+	\frametitle{Exhaustive Search for $3$-$SAT$ - A \emph{Very Satisfiable} Example!}
+\textbf{Input}: $\phi_5 = (\lnot X_1 \lor \lnot X_2 \lor \lnot X_3) \land (X_3 \lor \lnot X_4 \lor \lnot X_5)$ \\
+\textbf{Output}: Yes \\ 
+\textbf{Note}: no early termination once a satisfiable solution is found
+\begin{figure}
+\centering
+\includegraphics[scale = 0.8]{satSolverAlg.pdf}
+\end{figure}
+	% image of how the algorithm works 
+	% Array of truth values on left, arrows that point to literals, and then output truth value on the right
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Evaluating a Clause}
+\begin{itemize}
+	\item Evaluating a clause depends on how $\phi_n$ and the variable truth assignments are stored.
+	\begin{itemize}
+		\item {\tt boolean[] variables} for variable assignments and {\tt Literal[][3] formula} for $\phi_n$.
+		\item A {\tt Literal} has a variable ID and negated flag
+	\end{itemize}
+\end{itemize}
+{\small
+\begin{lstlisting}
+for (int c = 0; c < numClauses; c++) {
+    boolean clauseValue = false;
+    for (int l = 0; l < 3 && clauseValue == false; l++) {
+        if (formula[c][l].negated == true && !variables[formula[c][l].id])
+            clauseValue = true;
+        else if (formula[c][l].negated == false && variables[formula[c][l].id])
+            clauseValue = true; 
+    }
+    // Check the value of the clause now...
+}
+\end{lstlisting}
+}
+\end{frame}
+
+\section{Advanced Techniques and Heuristics for Parallel SAT Algorithms}
+% Describe the algorithm from your first research paper.
+\begin{frame}
+	\frametitle{Recursive Divide and Conquer with CUDA}
+	TODO
+\end{frame}
+
+% Describe the algorithm from your second research paper.
+\begin{frame}
+	\frametitle{Advanced Clause Learning and Sharing with ManySAT}
+	TODO
+\end{frame}
+
+% Describe the algorithm from your third research paper.
+\begin{frame}
+	\frametitle{Intelligent Literal Decisions and Advanced Data Structures for DPLL}
+	TODO
+\end{frame}
+
+\section{Parallel Program Design and Demonstration}
+% Describe the design of your parallel program.
+\begin{frame}
+	\frametitle{Parallel Implementation Design Goals}
+	Our design goals included:
+	\begin{itemize}
+		\item Evenly divide the configuration space among different threads
+		\item Minimize (or remove) conlficts for shared variables
+	\end{itemize}
+
+	\medskip
+
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{The Parallel Transformation}
+	Transforming variables 
+\begin{table}
+	\begin{tabular}{c | c | c}
+	Sequential Variable & Parallel Variable & Shared? \\ \hline
+	~ & ~ & ~ \\
+	~ & ~ & ~ \\
+	~ & ~ & ~ \\
+	~ & ~ & ~ \\
+	~ & ~ & ~ \\
+	\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Parallel Thread Synchronization}
+	Transforming variables 
+\begin{table}
+	\begin{tabular}{c | c | c}
+	Sequential Variable & Parallel Variable & Shared? \\ \hline
+	~ & ~ & ~ \\
+	~ & ~ & ~ \\
+	~ & ~ & ~ \\
+	~ & ~ & ~ \\
+	~ & ~ & ~ \\
+	\end{tabular}
+\end{table}
+\end{frame}
+
+% Give a brief demo of your parallel program for your problem, on a small instance of your problem.
+\begin{frame}
+	\frametitle{The Parallel Solver}
+	\begin{center}
+		Demo time!
+		\begin{align*}
+			\phi_5 = (\lnot X_1 \lor \lnot X_2 \lor \lnot X_3) \land (X_3 \lor \lnot X_4 \lor \lnot X_5)
+		\end{align*}
+	\end{center}
+\end{frame}
+
+\section{Performance Metrics}
+% Describe the performance metrics you measured.
+\begin{frame}
+	\frametitle{Speedup}
+	TODO
+\end{frame}
+
+\begin{frame}
+	\frametitle{Speedup Overview}
+	TODO
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sizeup}
+	TODO
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sizeup Overview}
+	TODO
+\end{frame}
+
+\section{Lessons Learned and Future Work}
+% Discuss what you learned from your investigation.
+% Discuss future work that could be done to further your investigation.
+\begin{frame}
+	\frametitle{Lessons Learned}
+	\begin{itemize}
+		\item TODO: what did we learn?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Future Work}
+	\begin{itemize}
+		\item Implement simple heuristics for literal decisions
+		\item Strive for wider splits of the configuration search space tree among multiple processes
+		\item 
+	\end{itemize}
+\end{frame}
+
+\section{Questions}
+\begin{frame}
+	\frametitle{Questions?}
+	\begin{center}
+		Fire away!
+	\end{center}
+\end{frame}
+
+\begin{comment}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.6]{images/sub_layer.jpg}
+\end{figure}
+\end{comment}
+
+\end{document}

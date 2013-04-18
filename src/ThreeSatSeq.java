@@ -85,8 +85,10 @@ public class ThreeSatSeq
 
     /**
      * Constructor to generate a 3-CNF formula from an external file.
+     *
+     * @throws exception if parameters are invalid
      */
-    public ThreeSatSeq(String filename)
+    public ThreeSatSeq(String filename) throws Exception
     {
         try 
         {
@@ -134,8 +136,10 @@ public class ThreeSatSeq
 
     /**
      * Constructor to generate a random 3-CNF formula for solving.
+     *
+     * @throws exception if parameters are invalid
      */
-    public ThreeSatSeq(int numVars, int numClauses, long seed)
+    public ThreeSatSeq(int numVars, int numClauses, long seed) throws Exception
     {
         this.numVars = numVars;
         this.numClauses = numClauses;

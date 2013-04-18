@@ -136,8 +136,10 @@ public class ThreeSatSmp
 
     /**
      * Constructor to generate a random 3-CNF formula for solving.
+     *
+     * @throws exception if parameters are invalid
      */
-    public ThreeSatSmp(int numVars, int numClauses, long seed)
+    public ThreeSatSmp(int numVars, int numClauses, long seed) throws Exception
     {
         this.numVars = numVars;
         this.numClauses = numClauses;
@@ -253,7 +255,6 @@ public class ThreeSatSmp
         }
         catch (Exception e) {
             System.err.println("Error occurred during the parallel team's execution.");
-            System.err.println(e.printStackTrace());
             e.printStackTrace();
         }
 
