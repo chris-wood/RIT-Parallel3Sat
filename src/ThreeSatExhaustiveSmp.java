@@ -7,26 +7,27 @@ import edu.rit.util.Random;
 import edu.rit.pj.ParallelTeam;
 import edu.rit.pj.ParallelRegion;
 import edu.rit.pj.LongForLoop;
+import edu.rit.pj.reduction.SharedLong;
 
 /**
- * Sequential implementation of the 3-SAT exhaustive search algorithm
- * that solves the decision version of the problem.
+ * Parallel implementation of the 3-SAT exhaustive search algorithm
+ * for SMP machines that computes the total number of satisfying solutions.
  *
  * @author Christopher Wood
  * @author Eitan Romanoff
  * @author Ankur Bajoria
  **/
-public class ThreeSatSmp
+public class ThreeSatExhaustiveSmp
 {
     // CNF formula parameters
     private static int numClauses;
     private static int numVars;
 
+    // Shared number of satisfying solutions
+    private static SharedLong numSatisfiable;
+
     // Clause collection
     private static Literal[][] formula;
-
-    // The number of satisfying solutions (shared variable for termination)
-    private static long numSatisfiable;
 
     /**
      * The main method. Runs the program.
@@ -47,16 +48,16 @@ public class ThreeSatSmp
         }
 
         // Parse the command line arguments
-        ThreeSatSmp sat = null;
+        ThreeSatExhaustiveSmp sat = null;
         try
         {
             if (args.length == 1)
             {
-                sat = new ThreeSatSmp(args[0]); 
+                sat = new ThreeSatExhaustiveSmp(args[0]); 
             }
             else if (args.length == 3)
             {
-                sat = new ThreeSatSmp(Integer.parseInt(args[0]),
+                sat = new ThreeSatExhaustiveSmp(Integer.parseInt(args[0]),
                     Integer.parseInt(args[1]), Long.parseLong(args[2]));
             }
             else
@@ -69,21 +70,16 @@ public class ThreeSatSmp
             System.err.println("Error: num_vars, num_clauses, and seed must be integers.");
             showUsage();
         }
-        catch (Exception e)
-        {
-            System.err.println(e.getMessage());
-            showUsage();
-        }
 
         // Run the decision algorithm and display the result.
-        boolean satisfiable = sat.decide();
-        if (satisfiable)
+        long numSats = sat.decide();
+        if (numSats > 0)
         {
-            System.out.println("Yes.");
+            System.out.printf("Satisfiable with %d solutions", numSats);
         }
         else
         {
-            System.out.println("No.");
+            System.out.printf("Not satisfiable.");
         }
 
         // Stop the clock and display the time.
@@ -93,11 +89,8 @@ public class ThreeSatSmp
 
     /**
      * Constructor to generate a 3-CNF formula from an external file.
-     *
-     * @param filename - file to read CNF formula from
-     * @throws exception if the parameters are invalid
      */
-    public ThreeSatSmp(String filename) throws Exception
+    public ThreeSatExhaustiveSmp(String filename)
     {
         try 
         {
@@ -107,11 +100,6 @@ public class ThreeSatSmp
             // Read in the number of clauses and variables
             this.numVars = Integer.parseInt(scanner.next());
             this.numClauses = Integer.parseInt(scanner.next());
-
-            if (numVars < 1 || numClauses < 1)
-            {
-                throw new Exception("Error: num_vars and num_clauses must be positive integers.");
-            }
 
             // Initialize the formula and variable data structure
             this.formula = new Literal[numClauses][3]; // 3 literals per clause
@@ -142,20 +130,14 @@ public class ThreeSatSmp
         }
     }
 
+
     /**
      * Constructor to generate a random 3-CNF formula for solving.
-     *
-     * @throws exception if parameters are invalid
      */
-    public ThreeSatSmp(int numVars, int numClauses, long seed) throws Exception
+    public ThreeSatExhaustiveSmp(int numVars, int numClauses, long seed)
     {
         this.numVars = numVars;
         this.numClauses = numClauses;
-
-        if (numVars < 1 || numClauses < 1)
-        {
-            throw new Exception("Error: num_vars and num_clauses must be positive integers.");
-        }
 
         // Initialize the PRNG and the formula/variable data structures
         Random prng = Random.getInstance(seed);
@@ -172,13 +154,12 @@ public class ThreeSatSmp
     }
 
     /**
-     * Decide whether or not the Boolean formula is satisfiable.
-     * This relies on the private variables contained within the 
-     * ThreeSatSeq class.
+     * Determine the number of satisfying variable configurations
+     * that satisfy this formula, if any.
      *
-     * @return true if satisfiable, false otherwise
+     * @return the number of satisfying instances.
      */
-    public boolean decide() 
+    public long decide() 
     {
         long tmp = 1L;
         for (int i = 0; i < numVars; i++) 
@@ -188,7 +169,7 @@ public class ThreeSatSmp
 
         // Create the parallel team and initialize the shared counter variable.
         ParallelTeam team = new ParallelTeam();
-        numSatisfiable = 0;
+        numSatisfiable = new SharedLong(0);
         final long numConfigurations = tmp;
         try 
         {
@@ -198,11 +179,18 @@ public class ThreeSatSmp
                 {
                     execute(0, numConfigurations - 1, new LongForLoop() 
                     {
+                        long perThreadSolutions; // per-thread solution counter.
+
+                        /**
+                         * Initialize the per thread solution counter to 0.
+                         */
+                        public void start() 
+                        {
+                            perThreadSolutions = 0;
+                        }
+
                         public void run(long first, long last) 
                         {
-                            Literal[] formula_c;
-                            int t_numSatisfiable = 0;
-
                             // Initialize the variable configuration based on 
                             // the configuration index.
                             boolean[] variables = new boolean[numVars];
@@ -219,21 +207,20 @@ public class ThreeSatSmp
                             }
 
                             // Iterate over every possible configuration for our given slice of the formula
-                            for (long config = first; config <= last && numSatisfiable == 0; config++)
+                            for (long config = first; config <= last; config++)
                             {
                                 boolean formulaValue = true;
                                 for (int c = 0; c < numClauses; c++) 
                                 {
-                                    formula_c = formula[c];
                                     boolean clauseValue = false;
                                     for (int l = 0; l < 3 && clauseValue == false; l++) 
                                     {
                                         // A clause is only true if at least one literal is true
-                                        if (formula_c[l].negated == true && !variables[formula_c[l].id])
+                                        if (formula[c][l].negated == true && !variables[formula[c][l].id])
                                         {
                                             clauseValue = true;
-                                        }
-                                        else if (formula_c[l].negated == false && variables[formula_c[l].id])
+                                        } 
+                                        else if (formula[c][l].negated == false && variables[formula[c][l].id])
                                         {
                                             clauseValue = true; 
                                         }
@@ -249,8 +236,7 @@ public class ThreeSatSmp
                                 // If satisfiable, print this result
                                 if (formulaValue) 
                                 {
-                                    long tmp = numSatisfiable + 1;
-                                    numSatisfiable = tmp; // JVM guarantees atomic set
+                                    perThreadSolutions++;
                                 }
 
                                 // Go to next configuration.
@@ -268,6 +254,15 @@ public class ThreeSatSmp
                                 }
                             } // End per-thread for Loop
                         } // End loop's run
+
+                        /**
+                         * Reduce the per-thread counter value into the shared variable.
+                         */
+                        public void finish() 
+                        {
+                            numSatisfiable.addAndGet(perThreadSolutions);
+                        }
+
                     }); // End parallel long loop and execute
                 } // End runs
             }); // End team.execute()
@@ -278,8 +273,7 @@ public class ThreeSatSmp
             e.printStackTrace();
         }
 
-        System.out.println("numSatisfiable = " + numSatisfiable);
-        return (numSatisfiable > 0);
+        return numSatisfiable.get();
     }
 
     /**

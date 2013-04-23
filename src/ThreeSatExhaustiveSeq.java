@@ -7,13 +7,13 @@ import edu.rit.util.Random;
 
 /**
  * Sequential implementation of the 3-SAT exhaustive search algorithm
- * that solves the decision version of the problem.
+ * that computes the total number of satisfying solutions.
  *
  * @author Christopher Wood
  * @author Eitan Romanoff
  * @author Ankur Bajoria
  **/
-public class ThreeSatSeq
+public class ThreeSatExhaustiveSeq
 {
     // CNF formula parameters
     private int numClauses;
@@ -24,6 +24,9 @@ public class ThreeSatSeq
 
     // Boolean configuration collection
     private boolean[] variables;
+
+    // Shared num satisfiable variable that is used to control parallel execution.
+    private static long numSatisfiable;
 
     /**
      * The main method. Runs the program.
@@ -44,16 +47,16 @@ public class ThreeSatSeq
         }
 
         // Parse the command line arguments
-        ThreeSatSeq sat = null;
+        ThreeSatExhaustiveSeq sat = null;
         try
         {
             if (args.length == 1)
             {
-                sat = new ThreeSatSeq(args[0]); 
+                sat = new ThreeSatExhaustiveSeq(args[0]); 
             }
             else if (args.length == 3)
             {
-                sat = new ThreeSatSeq(Integer.parseInt(args[0]),
+                sat = new ThreeSatExhaustiveSeq(Integer.parseInt(args[0]),
                     Integer.parseInt(args[1]), Long.parseLong(args[2]));
             }
             else
@@ -73,14 +76,14 @@ public class ThreeSatSeq
         }
 
         // Run the decision algorithm and display the result.
-        boolean satisfiable = sat.decide();
-        if (satisfiable)
+        long numSatisfiable = sat.decide();
+        if (numSatisfiable > 0)
         {
-            System.out.println("Yes.");
+            System.out.printf("Satisfiable with %d solutions", numSatisfiable);
         }
         else
         {
-            System.out.println("No.");
+            System.out.printf("Not satisfiable.");
         }
 
         // Stop the clock and display the time.
@@ -92,8 +95,9 @@ public class ThreeSatSeq
      * Constructor to generate a 3-CNF formula from an external file.
      *
      * @param filename - file to read CNF formula from
+     * @throws exception if parameters are invalid
      */
-    public ThreeSatSeq(String filename) throws Exception
+    public ThreeSatExhaustiveSeq(String filename)
     {
         try 
         {
@@ -145,7 +149,7 @@ public class ThreeSatSeq
      *
      * @throws exception if parameters are invalid
      */
-    public ThreeSatSeq(int numVars, int numClauses, long seed) throws Exception
+    public ThreeSatExhaustiveSeq(int numVars, int numClauses, long seed) throws Exception
     {
         this.numVars = numVars;
         this.numClauses = numClauses;
@@ -171,14 +175,15 @@ public class ThreeSatSeq
     }
 
     /**
-     * Decide whether or not the Boolean formula is satisfiable.
-     * This relies on the private variables contained within the 
-     * ThreeSatSeq class.
+     * Determine the number of satisfying variable configurations
+     * that satisfy this formula, if any.
      *
-     * @return true if satisfiable, false otherwise
+     * @return the number of satisfying instances.
      */
-    public boolean decide() 
+    public long decide() 
     {
+        long numSats = 0;
+
         // Initialize all variables to false.
         long numConfigurations = 1L;
         for (int i = 0; i < numVars; i++) 
@@ -218,7 +223,7 @@ public class ThreeSatSeq
             // the next configuration.
             if (formulaValue) 
             {
-                return true;
+                numSats++;
             }
 
             // Propagate the truth value throughout the collection.
@@ -236,7 +241,7 @@ public class ThreeSatSeq
             }
         }
 
-        return false; // No satisfying solution exists.
+        return numSats;
     }
 
     /**
@@ -244,7 +249,7 @@ public class ThreeSatSeq
      */
     public static void showUsage() 
     {
-        System.err.println("java ThreeSatSeq [<file> | <num_literals> <num_clauses> <seed>]");
+        System.err.println("java ThreeSatExhaustiveSeq [<file> | <num_literals> <num_clauses> <seed>]");
         System.exit(-1);
     }
 }
