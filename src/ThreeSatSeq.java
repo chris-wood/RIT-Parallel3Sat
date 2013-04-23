@@ -76,11 +76,11 @@ public class ThreeSatSeq
         boolean satisfiable = sat.decide();
         if (satisfiable)
         {
-            System.out.println("Yes.");
+            System.out.printf("Yes.%n");
         }
         else
         {
-            System.out.println("No.");
+            System.out.printf("No.%n");
         }
 
         // Stop the clock and display the time.

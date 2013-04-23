@@ -75,11 +75,11 @@ public class ThreeSatExhaustiveSmp
         long numSats = sat.decide();
         if (numSats > 0)
         {
-            System.out.printf("Satisfiable with %d solutions", numSats);
+            System.out.printf("Satisfiable with %d solutions.%n", numSats);
         }
         else
         {
-            System.out.printf("Not satisfiable.");
+            System.out.printf("Not satisfiable.%n");
         }
 
         // Stop the clock and display the time.

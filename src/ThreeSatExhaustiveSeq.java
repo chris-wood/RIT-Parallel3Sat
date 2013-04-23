@@ -79,11 +79,11 @@ public class ThreeSatExhaustiveSeq
         long numSatisfiable = sat.decide();
         if (numSatisfiable > 0)
         {
-            System.out.printf("Satisfiable with %d solutions", numSatisfiable);
+            System.out.printf("Satisfiable with %d solutions.%n", numSatisfiable);
         }
         else
         {
-            System.out.printf("Not satisfiable.");
+            System.out.printf("Not satisfiable.%n");
         }
 
         // Stop the clock and display the time.
