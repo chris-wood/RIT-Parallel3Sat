@@ -143,7 +143,7 @@ public class ThreeSatExhaustiveSmp
         Random prng = Random.getInstance(seed);
         formula = new Literal[numClauses][3]; // 3 literals per clause
 
-        // Randomly generate the formula the formula
+        // Randomly generate the formula 
         for (int i = 0; i < numClauses; i++) 
         {
             for (int j = 0; j < 3; j++) 
