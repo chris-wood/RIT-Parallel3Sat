@@ -88,7 +88,7 @@ public class ThreeSatSmp
 
         // Stop the clock and display the time.
         long endTime = System.currentTimeMillis();
-        System.out.printf((endTime - startTime) + "msec");
+        System.out.printf((endTime - startTime) + "msec%n");
     }
 
     /**
@@ -278,7 +278,6 @@ public class ThreeSatSmp
             e.printStackTrace();
         }
 
-        System.out.println("numSatisfiable = " + numSatisfiable);
         return (numSatisfiable > 0);
     }
 

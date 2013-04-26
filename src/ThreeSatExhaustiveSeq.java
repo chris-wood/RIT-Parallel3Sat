@@ -88,7 +88,7 @@ public class ThreeSatExhaustiveSeq
 
         // Stop the clock and display the time.
         long endTime = System.currentTimeMillis();
-        System.out.println((endTime - startTime) + "msec");
+        System.out.printf((endTime - startTime) + "msec%n");
     }
 
     /**
