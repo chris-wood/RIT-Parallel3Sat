@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
@@ -131,7 +130,7 @@ public class ThreeSatSmp
 
         // Stop the clock and display the time.
         long endTime = System.currentTimeMillis();
-        System.out.printf((endTime - startTime) + "msec%n");        
+        System.out.printf((endTime - startTime) + " msec%n");        
     }
 
     /**

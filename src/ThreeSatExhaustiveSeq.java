@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +27,7 @@ public class ThreeSatExhaustiveSeq
 
     // Shared num satisfiable variable that is used to control parallel execution.
     private static long numSatisfiable;
+    private static boolean[] solution;
 
     /**
      * The main method. Runs the program.
@@ -80,6 +81,10 @@ public class ThreeSatExhaustiveSeq
         if (numSatisfiable > 0)
         {
             System.out.printf("Satisfiable with %d solutions.%n", numSatisfiable);
+            for (int i = 0; i < solution.length; i++)
+            {
+                System.out.printf("X%d = %b%n", i, solution[i]);
+            }
         }
         else
         {
@@ -88,7 +93,7 @@ public class ThreeSatExhaustiveSeq
 
         // Stop the clock and display the time.
         long endTime = System.currentTimeMillis();
-        System.out.printf((endTime - startTime) + "msec%n");
+        System.out.printf((endTime - startTime) + " msec%n");
     }
 
     /**
@@ -223,6 +228,11 @@ public class ThreeSatExhaustiveSeq
             // the next configuration.
             if (formulaValue) 
             {
+                if (numSats == 0)
+                {
+                    System.out.println("config = " + config);
+                    solution = Arrays.copyOf(variables, variables.length);
+                }
                 numSats++;
             }
 

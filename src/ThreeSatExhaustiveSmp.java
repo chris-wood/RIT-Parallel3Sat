@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
@@ -9,6 +8,8 @@ import edu.rit.pj.ParallelRegion;
 import edu.rit.pj.LongForLoop;
 import edu.rit.pj.IntegerForLoop;
 import edu.rit.pj.reduction.SharedLong;
+import edu.rit.pj.reduction.SharedInteger;
+import edu.rit.pj.reduction.LongOp;
 
 /**
  * Parallel implementation of the 3-SAT exhaustive search algorithm
@@ -32,6 +33,8 @@ public class ThreeSatExhaustiveSmp
 
     // Shared number of satisfying solutions
     private static SharedLong numSatisfiable;
+    private static SharedLong solutionIndex;
+    private static boolean[] solution;
 
     /**
      * The main method. Runs the program.
@@ -82,6 +85,9 @@ public class ThreeSatExhaustiveSmp
         }
         final long numConfigurations = tmp;
 
+        // Allocate space to store the solution configuration.
+        final boolean[] solutionConfig = new boolean[numVars];
+
         // Enter the parallel region to perform the initialiation and decision tasks.
         try 
         {
@@ -104,18 +110,22 @@ public class ThreeSatExhaustiveSmp
 
                     // Now have each thread invoke the decide routine.
                     numSatisfiable = new SharedLong(0);
+                    solutionIndex = new SharedLong(Long.MAX_VALUE);
                     execute(0, numConfigurations - 1, new LongForLoop() 
                     {
-                        long p_numSolutions = 0;
+                        SolutionWrapper solution;
 
+                        // Run the solver over this thread's slice
                         public void run(long first, long last) throws Exception
                         {   
-                            p_numSolutions = sat.decide(first, last);
+                            solution = sat.decide(first, last);
                         }
 
-                        public void finish()
+                        // Reduce the results back into a single place
+                        public void finish()   
                         {
-                            numSatisfiable.addAndGet(p_numSolutions);
+                            numSatisfiable.addAndGet(solution.numSolutions);
+                            solutionIndex.reduce(solution.index, LongOp.MINIMUM);
                         }
                     });
                 }
@@ -131,6 +141,11 @@ public class ThreeSatExhaustiveSmp
         if (numSatisfiable.get() > 0)
         {
             System.out.printf("Satisfiable with %d solutions.%n", numSatisfiable.get());
+            initConfigArray(solutionConfig, solutionIndex.get());
+            for (int i = 0; i < numVars; i++)
+            {
+                System.out.printf("X%d = %b%n", i, solutionConfig[i]);
+            }
         }
         else
         {
@@ -139,7 +154,7 @@ public class ThreeSatExhaustiveSmp
 
         // Stop the clock and display the time.
         long endTime = System.currentTimeMillis();
-        System.out.printf((endTime - startTime) + "msec%n");        
+        System.out.printf((endTime - startTime) + " msec%n");        
     }
 
     /**
@@ -216,18 +231,38 @@ public class ThreeSatExhaustiveSmp
     }
 
     /**
+     * Initialize a boolean configuration array using the 
+     */
+    public static void initConfigArray(boolean[] config, long index) 
+    {
+        int n = config.length;
+        for (int i = 0; i < n; i++)
+        {
+            if (((1 << (n - i - 1)) & index) > 0) 
+            {
+                config[i] = true;
+            }
+            else 
+            {
+                config[i] = false;
+            }
+        }
+    }
+
+    /**
      * Decide whether or not the Boolean formula is satisfiable.
      * This relies on the private variables contained within the 
      * ThreeSatSeq class.
      *
      * @param first - first row index
      * @param last - last row index (inclusive)
-     * @return the number of satisyfing solutions
+     * @return a solution block
      */
-    public long decide(long first, long last) 
+    public SolutionWrapper decide(long first, long last) 
     {
         Literal[] formula_c;
         long p_numSolutions = 0;
+        long solutionIndex = Long.MAX_VALUE;
 
         // Initialize the variable configuration based on 
         // the configuration index.
@@ -275,6 +310,10 @@ public class ThreeSatExhaustiveSmp
             // If satisfiable, increment the number of solutions.
             if (formulaValue) 
             {
+                if (p_numSolutions == 0)
+                {
+                    solutionIndex = config;
+                }
                 p_numSolutions++;
             }
 
@@ -293,7 +332,7 @@ public class ThreeSatExhaustiveSmp
             }
         }
 
-        return p_numSolutions;
+        return new SolutionWrapper(p_numSolutions, solutionIndex);
     }
 
     /**
@@ -303,5 +342,25 @@ public class ThreeSatExhaustiveSmp
     {
         System.err.println("java ThreeSatSmp [<file> | <num_literals> <num_clauses> <seed>]");
         System.exit(-1);
+    }
+
+    /**
+     * Helper class to store the solution information (number and first index)
+     */
+    static class SolutionWrapper
+    {
+        // Variables to store the solution information.
+        public long numSolutions;
+        public long index;
+
+        /**
+         * Create a solution wrapper that stores the number of solutions and the index
+         * of the first encountered solution.
+         */
+        public SolutionWrapper(long numSolutions, long index)
+        {
+            this.numSolutions = numSolutions;
+            this.index = index;
+        }
     }
 }
