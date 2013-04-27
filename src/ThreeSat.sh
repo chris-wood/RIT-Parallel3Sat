@@ -206,6 +206,7 @@ java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 27 475 1245 > outTSESmp85-2
 java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 27 475 1245 > outTSESmp85-3
 
 echo "Done with the non-schedule results !"
+echo "Guided Schedule"
 
 echo "Timings for ThreeSatSmp-Guided, proc = 1"
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 23 50 1000 > goutTSSmp11-1
@@ -377,6 +378,179 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 26 250 145
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 27 475 1245 > goutTSESmp85-1
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 27 475 1245 > goutTSESmp85-2
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 27 475 1245 > goutTSESmp85-3
+
+echo "Dynamic Schedule"
+
+echo "Timings for ThreeSatSmp-Dynamic, proc = 1"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 23 50 1000 > doutTSSmp11-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 23 50 1000 > doutTSSmp11-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 23 50 1000 > doutTSSmp11-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 150 3548 > doutTSSmp12-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 150 3548 > doutTSSmp12-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 150 3548 > doutTSSmp12-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 25 200 1234 > doutTSSmp13-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 25 200 1234 > doutTSSmp13-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 25 200 1234 > doutTSSmp13-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 26 250 1452 > doutTSSmp14-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 26 250 1452 > doutTSSmp14-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 26 250 1452 > doutTSSmp14-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 27 475 1245 > doutTSSmp15-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 27 475 1245 > doutTSSmp15-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 27 475 1245 > doutTSSmp15-3
+
+echo "Timings for ThreeSatSmp-Dynamic, proc = 2"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 23 50 1000 > doutTSSmp21-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 23 50 1000 > doutTSSmp21-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 23 50 1000 > doutTSSmp21-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 150 3548 > doutTSSmp22-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 150 3548 > doutTSSmp22-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 150 3548 > doutTSSmp22-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 25 200 1234 > doutTSSmp23-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 25 200 1234 > doutTSSmp23-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 25 200 1234 > doutTSSmp23-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 26 250 1452 > doutTSSmp24-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 26 250 1452 > doutTSSmp24-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 26 250 1452 > doutTSSmp24-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 27 475 1245 > doutTSSmp25-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 27 475 1245 > doutTSSmp25-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 27 475 1245 > doutTSSmp25-3
+
+echo "Timings for ThreeSatSmp-Dynamic, proc = 3"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 23 50 1000 > doutTSSmp31-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 23 50 1000 > doutTSSmp31-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 23 50 1000 > doutTSSmp31-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 150 3548 > doutTSSmp32-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 150 3548 > doutTSSmp32-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 150 3548 > doutTSSmp32-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 25 200 1234 > doutTSSmp33-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 25 200 1234 > doutTSSmp33-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 25 200 1234 > doutTSSmp33-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 26 250 1452 > doutTSSmp34-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 26 250 1452 > doutTSSmp34-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 26 250 1452 > doutTSSmp34-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 27 475 1245 > doutTSSmp35-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 27 475 1245 > doutTSSmp35-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 27 475 1245 > doutTSSmp35-3
+
+echo "Timings for ThreeSatSmp-Dynamic, proc = 4"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 23 50 1000 > doutTSSmp41-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 23 50 1000 > doutTSSmp41-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 23 50 1000 > doutTSSmp41-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 150 3548 > doutTSSmp42-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 150 3548 > doutTSSmp42-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 150 3548 > doutTSSmp42-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 25 200 1234 > doutTSSmp43-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 25 200 1234 > doutTSSmp43-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 25 200 1234 > doutTSSmp43-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 26 250 1452 > doutTSSmp44-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 26 250 1452 > doutTSSmp44-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 26 250 1452 > doutTSSmp44-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 27 475 1245 > doutTSSmp45-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 27 475 1245 > doutTSSmp45-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 27 475 1245 > doutTSSmp45-3
+
+echo "Timings for ThreeSatSmp-Dynamic, proc = 8"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 23 50 1000 > doutTSSmp81-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 23 50 1000 > doutTSSmp81-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 23 50 1000 > doutTSSmp81-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 150 3548 > doutTSSmp82-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 150 3548 > doutTSSmp82-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 150 3548 > doutTSSmp82-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 25 200 1234 > doutTSSmp83-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 25 200 1234 > doutTSSmp83-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 25 200 1234 > doutTSSmp83-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 26 250 1452 > doutTSSmp84-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 26 250 1452 > doutTSSmp84-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 26 250 1452 > doutTSSmp84-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 27 475 1245 > doutTSSmp85-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 27 475 1245 > doutTSSmp85-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 27 475 1245 > doutTSSmp85-3
+
+
+echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 1"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp11-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp11-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp11-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp12-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp12-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp12-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp13-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp13-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp13-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp14-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp14-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp14-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp15-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp15-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp15-3
+
+echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 2"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp21-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp21-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp21-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp22-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp22-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp22-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp23-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp23-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp23-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp24-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp24-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp24-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp25-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp25-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp25-3
+
+echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 3"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp31-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp31-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp31-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp32-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp32-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp32-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp33-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp33-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp33-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp34-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp34-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp34-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp35-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp35-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp35-3
+
+echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 4"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp41-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp41-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp41-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp42-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp42-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp42-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp43-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp43-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp43-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp44-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp44-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp44-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp45-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp45-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp45-3
+
+echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 8"
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp81-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp81-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 23 50 1000 > doutTSESmp81-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp82-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp82-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 150 3548 > doutTSESmp82-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp83-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp83-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 25 200 1234 > doutTSESmp83-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp84-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp84-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 26 250 1452 > doutTSESmp84-3
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp85-1
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp85-2
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 27 475 1245 > doutTSESmp85-3
 
 
 echo "Done with schedule results..."
