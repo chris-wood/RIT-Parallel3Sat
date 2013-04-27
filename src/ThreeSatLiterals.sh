@@ -1,5 +1,6 @@
 clear 
 echo "Testing for all versions of the ThreeSat program."
+echo "  (variable literals)                            "
 echo "-------------------------------------------------"
 echo "Timings for ThreeSatSeq, proc = 0"
 java -Xmx2000m ThreeSatSeq 23 50 100 > outTSSeq1-1

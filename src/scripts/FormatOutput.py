@@ -1,4 +1,5 @@
 import os
+import sys
 
 
 # dictionaries: tag --> mapping
@@ -15,6 +16,10 @@ sequential = {}
 e_sequential = {}
 
 files = {}
+
+VARIABLE_CLAUSES = False
+
+SIZE_RANGE = 5
 
 tags = ("outTSSmp", "outTSESmp", "goutTSSmp", "goutTSESmp", "doutTSSmp", "doutTSESmp")
 
@@ -46,6 +51,13 @@ def generate_output_file(tag):
             line = line.strip()
             f.write(line + "\n")
 
+    # Do the closing bit to translate the size
+    for size in range(1, SIZE_RANGE + 1):
+        if VARIABLE_CLAUSES:
+            f.write("n " + str(size) + " " + str(size * 1000) + "\n")
+        else:
+            f.write("n " + str(size) + " " + str(size + 22) + "\n")
+
 
 def grab_time_standard(filename):
     f = open(filename)
@@ -64,9 +76,9 @@ def parse_sequential(filename, tag):
     time = grab_time_standard(filename)
 
     if "TSE" in tag:
-        e_sequential[22 + int(size)].append(time)
+        e_sequential[int(size)].append(time)
     else:
-        sequential[22 + int(size)].append(time)
+        sequential[int(size)].append(time)
 
 
 def parse_smp(filename, tag):
@@ -75,7 +87,7 @@ def parse_smp(filename, tag):
     proc = suffix[0]
     size = suffix[1]
     time = grab_time_standard(filename)
-    dictionaries[tag][22 + int(size)][int(proc)].append(time)
+    dictionaries[tag][int(size)][int(proc)].append(time)
 
 
 def extractFromFile(filename):
@@ -119,11 +131,27 @@ def extractFromFile(filename):
 
 
 def main():
+    global VARIABLE_CLAUSES
+
+    if len(sys.argv) == 1:
+        print "Usage: python FormatOutput [l | c]"
+        print "      l - literals"
+        print "      c - clauses "
+        sys.exit()
+    elif len(sys.argv) > 1:
+        if sys.argv[1] == "c":
+            VARIABLE_CLAUSES = True
+        elif sys.argv[1] == "l":
+            VARIABLE_CLAUSES = False
+        else:
+            print "Usage: python FormatOutput [c | l]"
+            sys.exit()
+
     for tag in tags:
         dictionaries[tag] = {}
         files[tag] = open("output_" + tag + ".txt", "w")
 
-    for size in range(23, 28):
+    for size in range(1, SIZE_RANGE + 1):
         sequential[size] = []
         e_sequential[size] = []
 
