@@ -25,7 +25,7 @@ tags = ("outTSSmp", "outTSESmp", "goutTSSmp", "goutTSESmp", "doutTSSmp", "doutTS
 
 
 def generate_output_file(tag):
-    f = files[tag]
+    fs = files[tag]
     d = dictionaries[tag]
 
     sizes = sorted(d.keys())
@@ -49,14 +49,74 @@ def generate_output_file(tag):
             for result in results:
                 line = line + str(result) + " "
             line = line.strip()
-            f.write(line + "\n")
+            for f in fs:
+                f.write(line + "\n")
 
     # Do the closing bit to translate the size
-    for size in range(1, SIZE_RANGE + 1):
-        if VARIABLE_CLAUSES:
-            f.write("n " + str(size) + " " + str(size * 1000) + "\n")
+    #for size in range(1, SIZE_RANGE + 1):
+    for f in fs:
+        if 'speedup' in f.name:
+            write_end_speedup(f)
+            #f.write("n " + str(size) + " " + str(size * 1000) + "\n")
         else:
-            f.write("n " + str(size) + " " + str(size + 22) + "\n")
+            write_end_sizeup(f)
+            #f.write("n " + str(size) + " " + str(size + 22) + "\n")
+
+
+def write_end_sizeup(f):
+    end = ""
+
+    if VARIABLE_CLAUSES:
+        end = """\
+n 1 23 "N = 23"
+n 2 24 "N = 24"
+n 3 25 "N = 25"
+n 4 26 "N = 26"
+n 5 27 "N = 27"
+T 6000
+T 10000
+T 15000
+T 30000
+T 60000
+T 100000
+        """
+    else:
+        end = """\
+n 1 10000 "N = 10000"
+n 2 20000 "N = 20000"
+n 3 30000 "N = 30000"
+n 4 40000 "N = 40000"
+n 5 50000 "N = 50000"
+T 6000
+T 10000
+T 15000
+T 30000
+T 60000
+T 100000
+"""
+    f.write(end)
+
+
+def write_end_speedup(f):
+    end = ""
+
+    if VARIABLE_CLAUSES:
+        end = """\
+n 1 10000 "N = 10000"
+n 2 20000 "N = 20000"
+n 3 30000 "N = 30000"
+n 4 40000 "N = 40000"
+n 5 50000 "N = 50000"
+        """
+    else:
+        end = """\
+n 1 23 "N = 23"
+n 2 24 "N = 24"
+n 3 25 "N = 25"
+n 4 26 "N = 26"
+n 5 27 "N = 27"
+"""
+    f.write(end)
 
 
 def grab_time_standard(filename):
@@ -149,7 +209,9 @@ def main():
 
     for tag in tags:
         dictionaries[tag] = {}
-        files[tag] = open("output_" + tag + ".txt", "w")
+        files[tag] = []
+        files[tag].append(open("output_" + tag + "_speedup.txt", "w"))
+        files[tag].append(open("output_" + tag + "_sizeup.txt", "w"))
 
     for size in range(1, SIZE_RANGE + 1):
         sequential[size] = []
