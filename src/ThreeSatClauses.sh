@@ -3,9 +3,9 @@ echo "Testing for all versions of the ThreeSat program."
 echo "  (variable clauses)                             "
 echo "-------------------------------------------------"
 echo "Timings for ThreeSatSeq, proc = 0"
-java -Xmx2000m ThreeSatSeq 24 1000 100 > outTSSeq1-1-c
-java -Xmx2000m ThreeSatSeq 24 1000 100 > outTSSeq1-2-c
-java -Xmx2000m ThreeSatSeq 24 1000 100 > outTSSeq1-3-c
+java -Xmx2000m ThreeSatSeq 24 1000 1000 > outTSSeq1-1-c
+java -Xmx2000m ThreeSatSeq 24 1000 1000 > outTSSeq1-2-c
+java -Xmx2000m ThreeSatSeq 24 1000 1000 > outTSSeq1-3-c
 java -Xmx2000m ThreeSatSeq 24 2000 3548 > outTSSeq2-1-c
 java -Xmx2000m ThreeSatSeq 24 2000 3548 > outTSSeq2-2-c
 java -Xmx2000m ThreeSatSeq 24 2000 3548 > outTSSeq2-3-c

@@ -289,7 +289,7 @@ public class ThreeSatSmp
      */
     public static void showUsage() 
     {
-        System.err.println("java ThreeSatSmp [<file> | <num_literals> <num_clauses> <seed>]");
+        System.err.println("java ThreeSatSmp [<file> | <num_vars> <num_clauses> <seed>]");
         System.exit(-1);
     }
 }
