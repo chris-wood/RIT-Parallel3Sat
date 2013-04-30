@@ -243,7 +243,7 @@ public class ThreeSatSeq
      */
     public static void showUsage() 
     {
-        System.err.println("java ThreeSatSeq [<file> | <num_literals> <num_clauses> <seed>]");
+        System.err.println("java ThreeSatSeq [<file> | <num_vars> <num_clauses> <seed>]");
         System.exit(-1);
     }
 }

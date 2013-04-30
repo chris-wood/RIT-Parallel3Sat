@@ -230,8 +230,11 @@ public class ThreeSatExhaustiveSeq
             {
                 if (numSats == 0)
                 {
-                    System.out.println("config = " + config);
-                    solution = Arrays.copyOf(variables, variables.length);
+                    solution = new boolean[variables.length];
+                    for (int i = 0; i < variables.length; i++) 
+                    {
+                        solution[i] = variables[i];
+                    }
                 }
                 numSats++;
             }
@@ -259,7 +262,7 @@ public class ThreeSatExhaustiveSeq
      */
     public static void showUsage() 
     {
-        System.err.println("java ThreeSatExhaustiveSeq [<file> | <num_literals> <num_clauses> <seed>]");
+        System.err.println("java ThreeSatExhaustiveSeq [<file> | <num_vars> <num_clauses> <seed>]");
         System.exit(-1);
     }
 }

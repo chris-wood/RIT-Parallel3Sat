@@ -3,9 +3,9 @@ echo "Testing for all versions of the ThreeSat program."
 echo "  (variable clauses)                             "
 echo "-------------------------------------------------"
 echo "Timings for ThreeSatSeq, proc = 0"
-java -Xmx2000m ThreeSatSeq 24 10000 100 > outTSSeq1-1-c
-java -Xmx2000m ThreeSatSeq 24 10000 100 > outTSSeq1-2-c
-java -Xmx2000m ThreeSatSeq 24 10000 100 > outTSSeq1-3-c
+java -Xmx2000m ThreeSatSeq 24 10000 1000 > outTSSeq1-1-c
+java -Xmx2000m ThreeSatSeq 24 10000 1000 > outTSSeq1-2-c
+java -Xmx2000m ThreeSatSeq 24 10000 1000 > outTSSeq1-3-c
 java -Xmx2000m ThreeSatSeq 24 20000 3548 > outTSSeq2-1-c
 java -Xmx2000m ThreeSatSeq 24 20000 3548 > outTSSeq2-2-c
 java -Xmx2000m ThreeSatSeq 24 20000 3548 > outTSSeq2-3-c
@@ -20,9 +20,9 @@ java -Xmx2000m ThreeSatSeq 24 50000 1245 > outTSSeq5-2-c
 java -Xmx2000m ThreeSatSeq 24 50000 1245 > outTSSeq5-3-c
 
 echo "Timings for ThreeSatSmp, proc = 1"
-java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > outTSSmp11-1-c
-java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > outTSSmp11-2-c
-java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > outTSSmp11-3-c
+java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > outTSSmp11-1-c
+java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > outTSSmp11-2-c
+java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > outTSSmp11-3-c
 java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > outTSSmp12-1-c
 java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > outTSSmp12-2-c
 java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > outTSSmp12-3-c
@@ -37,9 +37,9 @@ java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 50000 1245 > outTSSmp15-2-c
 java -Xmx2000m -Dpj.nt=1 ThreeSatSmp 24 50000 1245 > outTSSmp15-3-c
 
 echo "Timings for ThreeSatSmp, proc = 2"
-java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > outTSSmp21-1-c
-java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > outTSSmp21-2-c
-java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > outTSSmp21-3-c
+java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > outTSSmp21-1-c
+java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > outTSSmp21-2-c
+java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > outTSSmp21-3-c
 java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > outTSSmp22-1-c
 java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > outTSSmp22-2-c
 java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > outTSSmp22-3-c
@@ -54,9 +54,9 @@ java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 50000 1245 > outTSSmp25-2-c
 java -Xmx2000m -Dpj.nt=2 ThreeSatSmp 24 50000 1245 > outTSSmp25-3-c
 
 echo "Timings for ThreeSatSmp, proc = 3"
-java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > outTSSmp31-1-c
-java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > outTSSmp31-2-c
-java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > outTSSmp31-3-c
+java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > outTSSmp31-1-c
+java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > outTSSmp31-2-c
+java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > outTSSmp31-3-c
 java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > outTSSmp32-1-c
 java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > outTSSmp32-2-c
 java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > outTSSmp32-3-c
@@ -71,9 +71,9 @@ java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 50000 1245 > outTSSmp35-2-c
 java -Xmx2000m -Dpj.nt=3 ThreeSatSmp 24 50000 1245 > outTSSmp35-3-c
 
 echo "Timings for ThreeSatSmp, proc = 4"
-java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > outTSSmp41-1-c
-java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > outTSSmp41-2-c
-java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > outTSSmp41-3-c
+java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > outTSSmp41-1-c
+java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > outTSSmp41-2-c
+java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > outTSSmp41-3-c
 java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > outTSSmp42-1-c
 java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > outTSSmp42-2-c
 java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > outTSSmp42-3-c
@@ -88,9 +88,9 @@ java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 50000 1245 > outTSSmp45-2-c
 java -Xmx2000m -Dpj.nt=4 ThreeSatSmp 24 50000 1245 > outTSSmp45-3-c
 
 echo "Timings for ThreeSatSmp, proc = 8"
-java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > outTSSmp81-1-c
-java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > outTSSmp81-2-c
-java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > outTSSmp81-3-c
+java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > outTSSmp81-1-c
+java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > outTSSmp81-2-c
+java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > outTSSmp81-3-c
 java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > outTSSmp82-1-c
 java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > outTSSmp82-2-c
 java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > outTSSmp82-3-c
@@ -105,9 +105,9 @@ java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 50000 1245 > outTSSmp85-2-c
 java -Xmx2000m -Dpj.nt=8 ThreeSatSmp 24 50000 1245 > outTSSmp85-3-c
 
 echo "Timings for ThreeSatExhaustiveSeq, proc = 0"
-java -Xmx2000m ThreeSatExhaustiveSeq 24 10000 10000 > outTSESeq1-1-c
-java -Xmx2000m ThreeSatExhaustiveSeq 24 10000 10000 > outTSESeq1-2-c
-java -Xmx2000m ThreeSatExhaustiveSeq 24 10000 10000 > outTSESeq1-3-c
+java -Xmx2000m ThreeSatExhaustiveSeq 24 10000 1000 > outTSESeq1-1-c
+java -Xmx2000m ThreeSatExhaustiveSeq 24 10000 1000 > outTSESeq1-2-c
+java -Xmx2000m ThreeSatExhaustiveSeq 24 10000 1000 > outTSESeq1-3-c
 java -Xmx2000m ThreeSatExhaustiveSeq 24 20000 3548 > outTSESeq2-1-c
 java -Xmx2000m ThreeSatExhaustiveSeq 24 20000 3548 > outTSESeq2-2-c
 java -Xmx2000m ThreeSatExhaustiveSeq 24 20000 3548 > outTSESeq2-3-c
@@ -122,9 +122,9 @@ java -Xmx2000m ThreeSatExhaustiveSeq 24 50000 1245 > outTSESeq5-2-c
 java -Xmx2000m ThreeSatExhaustiveSeq 24 50000 1245 > outTSESeq5-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp, proc = 1"
-java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp11-1-c
-java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp11-2-c
-java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp11-3-c
+java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp11-1-c
+java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp11-2-c
+java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp11-3-c
 java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp12-1-c
 java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp12-2-c
 java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp12-3-c
@@ -139,9 +139,9 @@ java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 50000 1245 > outTSESmp15-2-c
 java -Xmx2000m -Dpj.nt=1 ThreeSatExhaustiveSmp 24 50000 1245 > outTSESmp15-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp, proc = 2"
-java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp21-1-c
-java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp21-2-c
-java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp21-3-c
+java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp21-1-c
+java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp21-2-c
+java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp21-3-c
 java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp22-1-c
 java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp22-2-c
 java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp22-3-c
@@ -156,9 +156,9 @@ java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 50000 1245 > outTSESmp25-2-c
 java -Xmx2000m -Dpj.nt=2 ThreeSatExhaustiveSmp 24 50000 1245 > outTSESmp25-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp, proc = 3"
-java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp31-1-c
-java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp31-2-c
-java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp31-3-c
+java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp31-1-c
+java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp31-2-c
+java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp31-3-c
 java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp32-1-c
 java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp32-2-c
 java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp32-3-c
@@ -173,9 +173,9 @@ java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 50000 1245 > outTSESmp35-2-c
 java -Xmx2000m -Dpj.nt=3 ThreeSatExhaustiveSmp 24 50000 1245 > outTSESmp35-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp, proc = 4"
-java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp41-1-c
-java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp41-2-c
-java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp41-3-c
+java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp41-1-c
+java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp41-2-c
+java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp41-3-c
 java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp42-1-c
 java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp42-2-c
 java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp42-3-c
@@ -190,9 +190,9 @@ java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 50000 1245 > outTSESmp45-2-c
 java -Xmx2000m -Dpj.nt=4 ThreeSatExhaustiveSmp 24 50000 1245 > outTSESmp45-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp, proc = 8"
-java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp81-1-c
-java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp81-2-c
-java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > outTSESmp81-3-c
+java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp81-1-c
+java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp81-2-c
+java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > outTSESmp81-3-c
 java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp82-1-c
 java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp82-2-c
 java -Xmx2000m -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > outTSESmp82-3-c
@@ -210,9 +210,9 @@ echo "Done with the non-schedule results !"
 echo "Guided Schedule"
 
 echo "Timings for ThreeSatSmp-Guided, proc = 1"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > goutTSSmp11-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > goutTSSmp11-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > goutTSSmp11-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > goutTSSmp11-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > goutTSSmp11-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > goutTSSmp11-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > goutTSSmp12-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > goutTSSmp12-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > goutTSSmp12-3-c
@@ -227,9 +227,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 50000 1245 > gout
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatSmp 24 50000 1245 > goutTSSmp15-3-c
 
 echo "Timings for ThreeSatSmp-Guided, proc = 2"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > goutTSSmp21-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > goutTSSmp21-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > goutTSSmp21-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > goutTSSmp21-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > goutTSSmp21-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > goutTSSmp21-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > goutTSSmp22-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > goutTSSmp22-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > goutTSSmp22-3-c
@@ -244,9 +244,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 50000 1245 > gout
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatSmp 24 50000 1245 > goutTSSmp25-3-c
 
 echo "Timings for ThreeSatSmp-Guided, proc = 3"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > goutTSSmp31-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > goutTSSmp31-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > goutTSSmp31-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > goutTSSmp31-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > goutTSSmp31-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > goutTSSmp31-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > goutTSSmp32-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > goutTSSmp32-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > goutTSSmp32-3-c
@@ -261,9 +261,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 50000 1245 > gout
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatSmp 24 50000 1245 > goutTSSmp35-3-c
 
 echo "Timings for ThreeSatSmp-Guided, proc = 4"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > goutTSSmp41-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > goutTSSmp41-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > goutTSSmp41-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > goutTSSmp41-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > goutTSSmp41-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > goutTSSmp41-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > goutTSSmp42-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > goutTSSmp42-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > goutTSSmp42-3-c
@@ -278,9 +278,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 50000 1245 > gout
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatSmp 24 50000 1245 > goutTSSmp45-3-c
 
 echo "Timings for ThreeSatSmp-Guided, proc = 8"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > goutTSSmp81-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > goutTSSmp81-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > goutTSSmp81-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > goutTSSmp81-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > goutTSSmp81-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > goutTSSmp81-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > goutTSSmp82-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > goutTSSmp82-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > goutTSSmp82-3-c
@@ -296,9 +296,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatSmp 24 50000 1245 > gout
 
 
 echo "Timings for ThreeSatExhaustiveSmp-Guided, proc = 1"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp11-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp11-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp11-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp11-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp11-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp11-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp12-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp12-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp12-3-c
@@ -313,9 +313,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 50000 1
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 50000 1245 > goutTSESmp15-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp-Guided, proc = 2"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp21-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp21-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp21-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp21-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp21-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp21-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp22-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp22-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp22-3-c
@@ -330,9 +330,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 50000 1
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 50000 1245 > goutTSESmp25-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp-Guided, proc = 3"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp31-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp31-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp31-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp31-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp31-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp31-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp32-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp32-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp32-3-c
@@ -347,9 +347,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 50000 1
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 50000 1245 > goutTSESmp35-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp-Guided, proc = 4"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp41-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp41-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp41-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp41-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp41-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp41-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp42-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp42-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp42-3-c
@@ -364,9 +364,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 50000 1
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 50000 1245 > goutTSESmp45-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp-Guided, proc = 8"
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp81-1-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp81-2-c
-java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > goutTSESmp81-3-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp81-1-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp81-2-c
+java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > goutTSESmp81-3-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp82-1-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp82-2-c
 java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > goutTSESmp82-3-c
@@ -383,9 +383,9 @@ java -Xmx2000m -Dpj.schedule="guided" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 50000 1
 echo "Dynamic Schedule"
 
 echo "Timings for ThreeSatSmp-Dynamic, proc = 1"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > doutTSSmp11-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > doutTSSmp11-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 10000 10000 > doutTSSmp11-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > doutTSSmp11-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > doutTSSmp11-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 10000 1000 > doutTSSmp11-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > doutTSSmp12-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > doutTSSmp12-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 20000 3548 > doutTSSmp12-3-c
@@ -400,9 +400,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 50000 1245 > dou
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatSmp 24 50000 1245 > doutTSSmp15-3-c
 
 echo "Timings for ThreeSatSmp-Dynamic, proc = 2"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > doutTSSmp21-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > doutTSSmp21-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 10000 10000 > doutTSSmp21-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > doutTSSmp21-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > doutTSSmp21-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 10000 1000 > doutTSSmp21-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > doutTSSmp22-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > doutTSSmp22-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 20000 3548 > doutTSSmp22-3-c
@@ -417,9 +417,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 50000 1245 > dou
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatSmp 24 50000 1245 > doutTSSmp25-3-c
 
 echo "Timings for ThreeSatSmp-Dynamic, proc = 3"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > doutTSSmp31-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > doutTSSmp31-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 10000 10000 > doutTSSmp31-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > doutTSSmp31-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > doutTSSmp31-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 10000 1000 > doutTSSmp31-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > doutTSSmp32-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > doutTSSmp32-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 20000 3548 > doutTSSmp32-3-c
@@ -434,9 +434,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 50000 1245 > dou
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatSmp 24 50000 1245 > doutTSSmp35-3-c
 
 echo "Timings for ThreeSatSmp-Dynamic, proc = 4"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > doutTSSmp41-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > doutTSSmp41-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 10000 10000 > doutTSSmp41-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > doutTSSmp41-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > doutTSSmp41-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 10000 1000 > doutTSSmp41-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > doutTSSmp42-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > doutTSSmp42-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 20000 3548 > doutTSSmp42-3-c
@@ -451,9 +451,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 50000 1245 > dou
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatSmp 24 50000 1245 > doutTSSmp45-3-c
 
 echo "Timings for ThreeSatSmp-Dynamic, proc = 8"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > doutTSSmp81-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > doutTSSmp81-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 10000 10000 > doutTSSmp81-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > doutTSSmp81-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > doutTSSmp81-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 10000 1000 > doutTSSmp81-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > doutTSSmp82-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > doutTSSmp82-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 20000 3548 > doutTSSmp82-3-c
@@ -469,9 +469,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatSmp 24 50000 1245 > dou
 
 
 echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 1"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp11-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp11-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp11-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp11-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp11-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp11-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp12-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp12-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp12-3-c
@@ -486,9 +486,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 50000 
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=1 ThreeSatExhaustiveSmp 24 50000 1245 > doutTSESmp15-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 2"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp21-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp21-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp21-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp21-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp21-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp21-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp22-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp22-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp22-3-c
@@ -503,9 +503,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 50000 
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=2 ThreeSatExhaustiveSmp 24 50000 1245 > doutTSESmp25-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 3"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp31-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp31-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp31-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp31-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp31-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp31-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp32-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp32-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp32-3-c
@@ -520,9 +520,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 50000 
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=3 ThreeSatExhaustiveSmp 24 50000 1245 > doutTSESmp35-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 4"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp41-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp41-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp41-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp41-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp41-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp41-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp42-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp42-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp42-3-c
@@ -537,9 +537,9 @@ java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 50000 
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=4 ThreeSatExhaustiveSmp 24 50000 1245 > doutTSESmp45-3-c
 
 echo "Timings for ThreeSatExhaustiveSmp-Dynamic, proc = 8"
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp81-1-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp81-2-c
-java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 10000 > doutTSESmp81-3-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp81-1-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp81-2-c
+java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 10000 1000 > doutTSESmp81-3-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp82-1-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp82-2-c
 java -Xmx2000m -Dpj.schedule="dynamic" -Dpj.nt=8 ThreeSatExhaustiveSmp 24 20000 3548 > doutTSESmp82-3-c
