@@ -124,8 +124,11 @@ public class ThreeSatExhaustiveSmp
                         // Reduce the results back into a single place
                         public void finish()   
                         {
-                            numSatisfiable.addAndGet(solution.numSolutions);
-                            solutionIndex.reduce(solution.index, LongOp.MINIMUM);
+                            if (solution != null)
+                            {
+                                numSatisfiable.addAndGet(solution.numSolutions);
+                                solutionIndex.reduce(solution.index, LongOp.MINIMUM);
+                            }
                         }
                     });
                 }
