@@ -191,19 +191,37 @@ for (int c = 0; c < numClauses; c++) {
 % Describe the algorithm from your first research paper.
 \begin{frame}
 	\frametitle{Recursive Divide and Conquer with CUDA}
-	TODO
+	\begin{itemize}
+		\item TODO: overview
+	\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.35]{satDCswap.jpg}
+\end{figure}
 \end{frame}
 
 % Describe the algorithm from your second research paper.
 \begin{frame}
 	\frametitle{Advanced Clause Learning and Sharing with ManySAT}
-	TODO
+	\begin{itemize}
+		\item TODO: overview
+	\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.35]{implication.jpg}
+\end{figure}
 \end{frame}
 
 % Describe the algorithm from your third research paper.
 \begin{frame}
 	\frametitle{Intelligent Literal Decisions and Advanced Data Structures for DPLL}
-	TODO
+	\begin{itemize}
+		\item TODO: overview
+	\end{itemize}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.35]{trie.png}
+\end{figure}
 \end{frame}
 
 \section{Parallel Program Design and Demonstration}
@@ -218,20 +236,21 @@ for (int c = 0; c < numClauses; c++) {
 
 	\medskip
 
+	Our solution consists of:
 	\begin{itemize}
-		\item 
+		\item TODO
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{The Parallel Transformation}
-	Transforming variables 
+	Managing variable access
 \begin{table}
 	\begin{tabular}{c | c | c}
 	Sequential Variable & Parallel Variable & Shared? \\ \hline
-	~ & ~ & ~ \\
-	~ & ~ & ~ \\
-	~ & ~ & ~ \\
+	Literal[][] & ~ & ~ \\
+	configuration[] & ~ & ~ \\
+	numSatisfiable & ~ & ~ \\
 	~ & ~ & ~ \\
 	~ & ~ & ~ \\
 	\end{tabular}
@@ -239,18 +258,20 @@ for (int c = 0; c < numClauses; c++) {
 \end{frame}
 
 \begin{frame}
-	\frametitle{Parallel Thread Synchronization}
-	Transforming variables 
-\begin{table}
-	\begin{tabular}{c | c | c}
-	Sequential Variable & Parallel Variable & Shared? \\ \hline
-	~ & ~ & ~ \\
-	~ & ~ & ~ \\
-	~ & ~ & ~ \\
-	~ & ~ & ~ \\
-	~ & ~ & ~ \\
-	\end{tabular}
-\end{table}
+	\frametitle{Computation Partition Strategy}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.45]{teamdesign.jpg}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Thread Synchronization}
+\vspace{-1em}
+\begin{figure}
+\centering
+\includegraphics[scale = 0.29]{design.jpg}
+\end{figure}
 \end{frame}
 
 % Give a brief demo of your parallel program for your problem, on a small instance of your problem.
@@ -264,26 +285,83 @@ for (int c = 0; c < numClauses; c++) {
 	\end{center}
 \end{frame}
 
-\section{Performance Metrics}
+\section{Exhaustive Performance Metrics}
 % Describe the performance metrics you measured.
 \begin{frame}
-	\frametitle{Speedup}
-	TODO
+	\frametitle{Speedup Metrics (Exhaustive)}
+
+\begin{columns}
+\column{.5\textwidth}
+	\vspace{-1em}
+	\begin{figure}
+	\centering
+	\includegraphics[scale = 0.25]{ge_speed_1.png}
+	\end{figure}
+	\vspace{-2em}
+	\begin{figure}
+	\centering
+	\includegraphics[scale = 0.25]{ge_speed_2.png}
+	\end{figure}
+\column{.5\textwidth}
+\begin{minipage}[c][.6\textheight][c]{\linewidth}
+	\vspace{-1em}
+	\begin{figure}
+	\centering
+	\includegraphics[scale = 0.25]{ge_speed_3.png}
+	\end{figure}
+	\vspace{-2em}
+	\begin{figure}
+	\centering
+	\includegraphics[scale = 0.25]{ge_speed_4.png}
+	\end{figure}
+\end{minipage}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Speedup Overview}
-	TODO
+	\frametitle{Sizeup Metrics (Exhaustive)}
+\begin{columns}
+\column{.5\textwidth}
+	\vspace{-1em}
+	\begin{figure}
+	\centering
+	\includegraphics[scale = 0.25]{ge_size_1.png}
+	\end{figure}
+	\vspace{-2em}
+	\begin{figure}
+	\centering
+	\includegraphics[scale = 0.25]{ge_size_2.png}
+	\end{figure}
+\column{.5\textwidth}
+\begin{minipage}[c][.6\textheight][c]{\linewidth}
+	\vspace{-1em}
+	\begin{figure}
+	\centering
+	\includegraphics[scale = 0.25]{ge_size_3.png}
+	\end{figure}
+	\vspace{-2em}
+	\begin{figure}
+	\centering
+	\includegraphics[scale = 0.25]{ge_size_4.png}
+	\end{figure}
+\end{minipage}
+\end{columns}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Sizeup}
-	TODO
-\end{frame}
-
-\begin{frame}
-	\frametitle{Sizeup Overview}
-	TODO
+	\frametitle{Performance Observations}
+	\begin{itemize}
+		\item We achieved \emph{superlinear} speedups and sizeups using a guided schdule with varying the number of variables
+		\item Exaustive 3-SAT problems have implicit unbalanced loads
+		\begin{itemize}
+			\item A guided schedule yielded the best results for speedup and sizeup
+			\item A dynamic schedule caused a \emph{significant} amount of overhead
+		\end{itemize}
+		\item Our parallel programs achieve better performance when the number of variables is varied:
+		\begin{itemize}
+			\item The problem size $N = f(N_v, N_c) = 2^{N_v} \times N_c$
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \section{Lessons Learned and Future Work}
@@ -292,16 +370,20 @@ for (int c = 0; c < numClauses; c++) {
 \begin{frame}
 	\frametitle{Lessons Learned}
 	\begin{itemize}
-		\item TODO: what did we learn?
+		\item If the problem size is a function of \emph{multiple} variables, experiments should only change one 
+		of such variables to gather valid performance data
+		\item A guided schedule yielded the most balanced load for our computation partition strategy
+		\item TODO
+		\item TODO
 	\end{itemize}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Future Work}
 	\begin{itemize}
-		\item Implement simple heuristics for literal decisions
-		\item Strive for wider splits of the configuration search space tree among multiple processes
-		\item 
+		\item Implement more advanced heuristics for literal selection
+		\item Strive for wider splits of the configuration search space tree among multiple processes 
+		\item Experiment with different data structures to see what's the most optimal
 	\end{itemize}
 \end{frame}
 
