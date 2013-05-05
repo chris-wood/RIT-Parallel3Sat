@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 MAY 2013 03:15
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  5 MAY 2013 00:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -116,8 +116,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen126
 \Gm@dimlist=\toks15
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/size11.clo
-File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2012/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 (/usr/local/texlive/2012/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
@@ -796,14 +796,14 @@ Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 (/usr/local/texlive/2012/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2011/09/21 ver 4.0
 
-Examine \normalsize starts \@setfontsize size may be \@xipt. 
-Examine \small starts \@setfontsize size may be \@xpt. 
-Examine \footnotesize starts \@setfontsize size may be \@ixpt. 
+Examine \normalsize starts \@setfontsize size may be \@xpt. 
+Examine \small starts \@setfontsize size may be \@ixpt. 
+Examine \footnotesize starts \@setfontsize size may be \@viiipt. 
 Examine \large starts \@setfontsize size may be \@xiipt. 
 Examine \Large starts \@setfontsize size may be \@xivpt. 
 Examine \LARGE starts \@setfontsize size may be \@xviipt. 
-Examine \scriptsize starts \@setfontsize size may be \@viiipt. 
-Examine \tiny starts \@setfontsize size may be \@vipt. 
+Examine \scriptsize starts \@setfontsize size may be \@viipt. 
+Examine \tiny starts \@setfontsize size may be \@vpt. 
 Examine \huge starts \@setfontsize size may be \@xxpt. 
 Examine \Huge starts \@setfontsize size may be \@xxvpt. )
 ********************************************************
@@ -983,7 +983,7 @@ LaTeX Font Info:    Try loading font information for T1+phv on input line 53.
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.85492pt on input line 53.
+(Font)              scaled to size 8.99994pt on input line 53.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1004,12 +1004,12 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 * \topmargin=-72.26999pt
 * \headheight=14.22636pt
 * \headsep=0.0pt
-* \topskip=11.0pt
+* \topskip=10.0pt
 * \footskip=14.22636pt
-* \marginparwidth=4.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=3.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -1139,11 +1139,11 @@ LaTeX Info: Redefining \includegraphics on input line 53.
 
 (./TeamSatisfaction_Presentation2.nav)
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 5.39996pt on input line 53.
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <6> not available
+(Font)              scaled to size 4.49997pt on input line 53.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <5> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 53.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 5.39996pt on input line 53.
+(Font)              scaled to size 4.49997pt on input line 53.
 LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 53
 .
 
@@ -1167,16 +1167,8 @@ LaTeX Font Info:    Try loading font information for OT1+ptm on input line 53.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 53.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 4.49997pt on input line 53.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 53.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 5.39996pt on input line 53.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <5> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 53.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
@@ -1189,6 +1181,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 57.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 57.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 9.85492pt on input line 57.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 7.19995pt on input line 57.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <14.4> not available
@@ -1203,6 +1197,8 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 57.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
 (Font)              scaled to size 7.19995pt on input line 57.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 6.29996pt on input line 57.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <4> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 57.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
@@ -1213,49 +1209,66 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 
 ]
 (./TeamSatisfaction_Presentation2.toc
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <9> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 2.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.99994pt on input line 2.
+(Font)              scaled to size 8.09995pt on input line 2.
 ) [2
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 6.65994pt on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 5.39996pt on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.99994pt on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7.4> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 6.65994pt on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <6> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 5.39996pt on input line 92.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 92.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.85492pt on input line 92.
+(Font)              scaled to size 8.99994pt on input line 92.
  [3
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.99994pt on input line 111.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              scaled to size 8.09995pt on input line 111.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 111.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 111.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 6.65994pt on input line 111.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 111.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.99994pt on input line 111.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7.4> not available
+(Font)              scaled to size 8.09995pt on input line 111.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 111.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.65994pt on input line 111.
+(Font)              scaled to size 6.29996pt on input line 111.
  [4
 
 ]
 \openout4 = `TeamSatisfaction_Presentation2.vrb'.
 
 
-(./TeamSatisfaction_Presentation2.vrb
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 8.
-) [5
+(./TeamSatisfaction_Presentation2.vrb) [5
 
 ]
-<satSolverAlg.pdf, id=105, 348.55219pt x 174.6525pt>
+<satSolverAlg.pdf, id=106, 348.55219pt x 174.6525pt>
 File: satSolverAlg.pdf Graphic file (type pdf)
  <use satSolverAlg.pdf>
 Package pdftex.def Info: satSolverAlg.pdf used on input line 163.
@@ -1272,130 +1285,123 @@ LaTeX Font Info:    Try loading font information for T1+pcr on input line 5.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <6> not available
+LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <5> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 11.
-LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <6> not available
+LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <5> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 19.
 ) [7
 
 ]
-<satDCswap.jpg, id=157, 914.66719pt x 383.93437pt>
+<satDCswap.jpg, id=158, 914.66719pt x 383.93437pt>
 File: satDCswap.jpg Graphic file (type jpg)
  <use satDCswap.jpg>
-Package pdftex.def Info: satDCswap.jpg used on input line 201.
-(pdftex.def)             Requested size: 320.1383pt x 134.37903pt.
+Package pdftex.def Info: satDCswap.jpg used on input line 203.
+(pdftex.def)             Requested size: 274.40227pt x 115.1812pt.
+ [8
 
-Overfull \hbox (12.84843pt too wide) in paragraph at lines 201--201
- [] 
- []
-
-[8
-
- <./satDCswap.jpg>] <implication.jpg, id=167, 680.5425pt x 457.71pt>
+ <./satDCswap.jpg>] <implication.jpg, id=168, 680.5425pt x 457.71pt>
 File: implication.jpg Graphic file (type jpg)
 
 <use implication.jpg>
-Package pdftex.def Info: implication.jpg used on input line 213.
-(pdftex.def)             Requested size: 238.19344pt x 160.2009pt.
- [9
+Package pdftex.def Info: implication.jpg used on input line 218.
+(pdftex.def)             Requested size: 217.77805pt x 146.47018pt.
 
- <./implication.jpg>]
-<trie.png, id=177, 652.4375pt x 448.67625pt>
-File: trie.png Graphic file (type png)
- <use trie.png>
-Package pdftex.def Info: trie.png used on input line 225.
-(pdftex.def)             Requested size: 228.35654pt x 157.03903pt.
-
-Overfull \vbox (8.72874pt too high) detected at line 225
+Overfull \vbox (17.20418pt too high) detected at line 218
  []
 
-[10
+[9
+
+ <./implication.jpg>] <trie.png, id=178, 652.4375pt x 448.67625pt>
+File: trie.png Graphic file (type png)
+
+<use trie.png>
+Package pdftex.def Info: trie.png used on input line 232.
+(pdftex.def)             Requested size: 130.48518pt x 89.73366pt.
+ [10
 
  <./trie.png (PNG copy)>] [11
 
-] [12
-
 ]
-<teamdesign.jpg, id=204, 388.45125pt x 343.2825pt>
+<teamdesign.jpg, id=196, 388.45125pt x 343.2825pt>
 File: teamdesign.jpg Graphic file (type jpg)
  <use teamdesign.jpg>
-Package pdftex.def Info: teamdesign.jpg used on input line 266.
-(pdftex.def)             Requested size: 174.80144pt x 154.4757pt.
+Package pdftex.def Info: teamdesign.jpg used on input line 277.
+(pdftex.def)             Requested size: 194.22514pt x 171.64082pt.
 
-[13
+[12
 
- <./teamdesign.jpg>] <design.jpg, id=215, 532.99126pt x 662.475pt>
+ <./teamdesign.jpg>] <design.jpg, id=206, 532.99126pt x 662.475pt>
 File: design.jpg Graphic file (type jpg)
 
 <use design.jpg>
-Package pdftex.def Info: design.jpg used on input line 275.
+Package pdftex.def Info: design.jpg used on input line 286.
 (pdftex.def)             Requested size: 154.5635pt x 192.11282pt.
- [14
+ [13
 
- <./design.jpg>] [15
+ <./design.jpg>] [14
 
 ]
-<ge_speed_1.png, id=234, 415.5525pt x 370.38374pt>
-File: ge_speed_1.png Graphic file (type png)
- <use ge_speed_1.png>
-Package pdftex.def Info: ge_speed_1.png used on input line 319.
-(pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
-
-<ge_speed_2.png, id=235, 415.5525pt x 370.38374pt>
-File: ge_speed_2.png Graphic file (type png)
- <use ge_speed_2.png>
-Package pdftex.def Info: ge_speed_2.png used on input line 319.
-(pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
-
-<ge_speed_3.png, id=236, 415.5525pt x 370.38374pt>
-File: ge_speed_3.png Graphic file (type png)
- <use ge_speed_3.png>
-Package pdftex.def Info: ge_speed_3.png used on input line 319.
-(pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
-
-<ge_speed_4.png, id=237, 415.5525pt x 370.38374pt>
+<ge_speed_4.png, id=226, 415.5525pt x 370.38374pt>
 File: ge_speed_4.png Graphic file (type png)
  <use ge_speed_4.png>
-Package pdftex.def Info: ge_speed_4.png used on input line 319.
+Package pdftex.def Info: ge_speed_4.png used on input line 330.
 (pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
 
-[16
+<ge_speed_3.png, id=227, 415.5525pt x 370.38374pt>
+File: ge_speed_3.png Graphic file (type png)
+ <use ge_speed_3.png>
+Package pdftex.def Info: ge_speed_3.png used on input line 330.
+(pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
 
- <./ge_speed_1.png (PNG copy)> <./ge_speed_2.png (PNG copy)> <./ge_speed_3.png 
-(PNG copy)> <./ge_speed_4.png (PNG copy)>]
-<ge_size_1.png, id=246, 427.5975pt x 370.38374pt>
-File: ge_size_1.png Graphic file (type png)
- <use ge_size_1.png>
-Package pdftex.def Info: ge_size_1.png used on input line 349.
-(pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
+<ge_speed_2.png, id=228, 415.5525pt x 370.38374pt>
+File: ge_speed_2.png Graphic file (type png)
+ <use ge_speed_2.png>
+Package pdftex.def Info: ge_speed_2.png used on input line 330.
+(pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
 
-<ge_size_2.png, id=247, 427.5975pt x 370.38374pt>
-File: ge_size_2.png Graphic file (type png)
- <use ge_size_2.png>
-Package pdftex.def Info: ge_size_2.png used on input line 349.
-(pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
+<ge_speed_1.png, id=229, 415.5525pt x 370.38374pt>
+File: ge_speed_1.png Graphic file (type png)
+ <use ge_speed_1.png>
+Package pdftex.def Info: ge_speed_1.png used on input line 330.
+(pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
 
-<ge_size_3.png, id=248, 427.5975pt x 370.38374pt>
-File: ge_size_3.png Graphic file (type png)
- <use ge_size_3.png>
-Package pdftex.def Info: ge_size_3.png used on input line 349.
-(pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
+[15
 
-<ge_size_4.png, id=249, 427.5975pt x 370.38374pt>
+ <./ge_speed_4.png (PNG copy)> <./ge_speed_3.png (PNG copy)> <./ge_speed_2.png 
+(PNG copy)> <./ge_speed_1.png (PNG copy)>]
+<ge_size_4.png, id=238, 427.5975pt x 370.38374pt>
 File: ge_size_4.png Graphic file (type png)
  <use ge_size_4.png>
-Package pdftex.def Info: ge_size_4.png used on input line 349.
+Package pdftex.def Info: ge_size_4.png used on input line 360.
 (pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
- [17
 
- <./ge_size_1.png (PNG copy)> <./ge_size_2.png (PNG copy)> <./ge_size_3.png (PN
-G copy)> <./ge_size_4.png (PNG copy)>] [18
+<ge_size_3.png, id=239, 427.5975pt x 370.38374pt>
+File: ge_size_3.png Graphic file (type png)
+ <use ge_size_3.png>
+Package pdftex.def Info: ge_size_3.png used on input line 360.
+(pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
+
+<ge_size_2.png, id=240, 427.5975pt x 370.38374pt>
+File: ge_size_2.png Graphic file (type png)
+ <use ge_size_2.png>
+Package pdftex.def Info: ge_size_2.png used on input line 360.
+(pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
+
+<ge_size_1.png, id=241, 427.5975pt x 370.38374pt>
+File: ge_size_1.png Graphic file (type png)
+ <use ge_size_1.png>
+Package pdftex.def Info: ge_size_1.png used on input line 360.
+(pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
+ [16
+
+ <./ge_size_4.png (PNG copy)> <./ge_size_3.png (PNG copy)> <./ge_size_2.png (PN
+G copy)> <./ge_size_1.png (PNG copy)>] [17
+
+] [18
 
 ] [19
 
 ] [20
-
-] [21
 
 ]
 \tf@nav=\write7
@@ -1407,40 +1413,41 @@ G copy)> <./ge_size_4.png (PNG copy)>] [18
 \tf@snm=\write9
 \openout9 = `TeamSatisfaction_Presentation2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 405.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 405.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 415.
 
 (./TeamSatisfaction_Presentation2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 405.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 405.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 415.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 415.
 Package rerunfilecheck Info: File `TeamSatisfaction_Presentation2.out' has not 
 changed.
 (rerunfilecheck)             Checksum: C233752DA790DD57F3F86A97B211BA2C;462.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 405.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 415.
  ) 
 Here is how much of TeX's memory you used:
- 19546 strings out of 493488
- 351793 string characters out of 3141326
- 696523 words of memory out of 3000000
- 22259 multiletter control sequences out of 15000+200000
- 89645 words of font info for 132 fonts, out of 3000000 for 9000
+ 19570 strings out of 493488
+ 352148 string characters out of 3141326
+ 696515 words of memory out of 3000000
+ 22284 multiletter control sequences out of 15000+200000
+ 100171 words of font info for 149 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,17n,53p,419b,1154s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/tex
-live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
-ive/2012/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2012
-/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012/texmf-d
-ist/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2012/texmf-dist/fon
-ts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type
-1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/h
-elvetic/uhvro8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/symbol/
-usyr.pfb>
-Output written on TeamSatisfaction_Presentation2.pdf (21 pages, 750147 bytes).
+live/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texli
+ve/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texliv
+e/2012/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2012/t
+exmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012/texmf-dis
+t/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2012/texmf-dist/fonts
+/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/
+urw/helvetic/uhvr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/hel
+vetic/uhvro8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/symbol/us
+yr.pfb>
+Output written on TeamSatisfaction_Presentation2.pdf (20 pages, 757371 bytes).
 PDF statistics:
- 343 PDF objects out of 1000 (max. 8388607)
- 263 compressed objects within 3 object streams
- 51 named destinations out of 1000 (max. 500000)
+ 338 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

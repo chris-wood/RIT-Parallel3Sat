@@ -1,4 +1,4 @@
-\documentclass[handout]{beamer}
+\documentclass[handout,10pt]{beamer}
 
 \usepackage{beamerthemesplit}
 \usepackage{pgfpages}
@@ -192,11 +192,13 @@ for (int c = 0; c < numClauses; c++) {
 \begin{frame}
 	\frametitle{Recursive Divide and Conquer with CUDA}
 	\begin{itemize}
-		\item TODO: overview
+		\item Idea: Recursively search the variable assignment space
+		\item Approach: A formulas is a ``stack'' of clauses that are reduced or popped off during assignment 
+		\item Implementation: Master-worker pattern for distributing formulas to individual CUDA kernels
 	\end{itemize}
 \begin{figure}
 \centering
-\includegraphics[scale = 0.35]{satDCswap.jpg}
+\includegraphics[scale = 0.30]{satDCswap.jpg}
 \end{figure}
 \end{frame}
 
@@ -204,11 +206,14 @@ for (int c = 0; c < numClauses; c++) {
 \begin{frame}
 	\frametitle{Advanced Clause Learning and Sharing with ManySAT}
 	\begin{itemize}
-		\item TODO: overview
+		\item Idea: Exploit heuristics for particular types of formulas
+		\item Approach: Run multiple sequential solvers in parallel and reduce the result together
+		\item Implementation: Each solver uses different restart policies, literal selection strategies, and shared
+		conflict-driven clause learning 
 	\end{itemize}
 \begin{figure}
 \centering
-\includegraphics[scale = 0.35]{implication.jpg}
+\includegraphics[scale = 0.32]{implication.jpg}
 \end{figure}
 \end{frame}
 
@@ -216,52 +221,58 @@ for (int c = 0; c < numClauses; c++) {
 \begin{frame}
 	\frametitle{Intelligent Literal Decisions and Advanced Data Structures for DPLL}
 	\begin{itemize}
-		\item TODO: overview
+		\item Idea: Enhance literal selection to more effectively traverse the search space
+		\item Approach: Use trie data structures to build ``guided paths'' that indicate whether a branch has been visited or not
+		\item Implementation: Distribute guided paths across different worker processes using a master-worker pattern
 	\end{itemize}
 \begin{figure}
 \centering
-\includegraphics[scale = 0.35]{trie.png}
+\includegraphics[scale = 0.2]{trie.png}
 \end{figure}
 \end{frame}
 
 \section{Parallel Program Design and Demonstration}
 % Describe the design of your parallel program.
 \begin{frame}
-	\frametitle{Parallel Implementation Design Goals}
+	\frametitle{Parallel Program Characteristics}
 	Our design goals included:
 	\begin{itemize}
-		\item Evenly divide the configuration space among different threads
+		\item Evenly divide the computation among different threads
 		\item Minimize (or remove) conlficts for shared variables
 	\end{itemize}
 
 	\medskip
 
-	Our solution consists of:
+	Our parallel design strategy:
 	\begin{itemize}
-		\item TODO
+		\item \emph{Result parallelism} for exhaustive program and \emph{agenda parallelism} for decision program
+		\item Split the evaluation of each variable configuration among every thread
+		\item Reduce the final result into the main thread
+		\item Balance the load using a guided schedule
 	\end{itemize}
 \end{frame}
 
-\begin{frame}
-	\frametitle{The Parallel Transformation}
-	Managing variable access
-\begin{table}
-	\begin{tabular}{c | c | c}
-	Sequential Variable & Parallel Variable & Shared? \\ \hline
-	Literal[][] & ~ & ~ \\
-	configuration[] & ~ & ~ \\
-	numSatisfiable & ~ & ~ \\
-	~ & ~ & ~ \\
-	~ & ~ & ~ \\
-	\end{tabular}
-\end{table}
-\end{frame}
+% TODO: include a slide about the variables and how we split them?
+% \begin{frame}
+% 	\frametitle{The Parallel Transformation}
+% 	Managing variable access
+% \begin{table}
+% 	\begin{tabular}{c | c | c}
+% 	Sequential Variable & Parallel Variable & Shared? \\ \hline
+% 	Literal[][] & ~ & ~ \\
+% 	configuration[] & ~ & ~ \\
+% 	numSatisfiable & ~ & ~ \\
+% 	~ & ~ & ~ \\
+% 	~ & ~ & ~ \\
+% 	\end{tabular}
+% \end{table}
+% \end{frame}
 
 \begin{frame}
 	\frametitle{Computation Partition Strategy}
 \begin{figure}
 \centering
-\includegraphics[scale = 0.45]{teamdesign.jpg}
+\includegraphics[scale = 0.5]{teamdesign.jpg}
 \end{figure}
 \end{frame}
 
@@ -276,7 +287,7 @@ for (int c = 0; c < numClauses; c++) {
 
 % Give a brief demo of your parallel program for your problem, on a small instance of your problem.
 \begin{frame}
-	\frametitle{The Parallel Solver}
+	\frametitle{Action!}
 	\begin{center}
 		Demo time!
 		\begin{align*}
@@ -295,24 +306,24 @@ for (int c = 0; c < numClauses; c++) {
 	\vspace{-1em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_speed_1.png}
+	\includegraphics[scale = 0.25]{ge_speed_4.png}
 	\end{figure}
 	\vspace{-2em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_speed_2.png}
+	\includegraphics[scale = 0.25]{ge_speed_3.png}
 	\end{figure}
 \column{.5\textwidth}
 \begin{minipage}[c][.6\textheight][c]{\linewidth}
 	\vspace{-1em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_speed_3.png}
+	\includegraphics[scale = 0.25]{ge_speed_2.png}
 	\end{figure}
 	\vspace{-2em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_speed_4.png}
+	\includegraphics[scale = 0.25]{ge_speed_1.png}
 	\end{figure}
 \end{minipage}
 \end{columns}
@@ -325,24 +336,24 @@ for (int c = 0; c < numClauses; c++) {
 	\vspace{-1em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_size_1.png}
+	\includegraphics[scale = 0.25]{ge_size_4.png}
 	\end{figure}
 	\vspace{-2em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_size_2.png}
+	\includegraphics[scale = 0.25]{ge_size_3.png}
 	\end{figure}
 \column{.5\textwidth}
 \begin{minipage}[c][.6\textheight][c]{\linewidth}
 	\vspace{-1em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_size_3.png}
+	\includegraphics[scale = 0.25]{ge_size_2.png}
 	\end{figure}
 	\vspace{-2em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_size_4.png}
+	\includegraphics[scale = 0.25]{ge_size_1.png}
 	\end{figure}
 \end{minipage}
 \end{columns}
@@ -357,7 +368,7 @@ for (int c = 0; c < numClauses; c++) {
 			\item A guided schedule yielded the best results for speedup and sizeup
 			\item A dynamic schedule caused a \emph{significant} amount of overhead
 		\end{itemize}
-		\item Our parallel programs achieve better performance when the number of variables is varied:
+		\item Our parallel programs achieve better performance when the number of variables was varied:
 		\begin{itemize}
 			\item The problem size $N = f(N_v, N_c) = 2^{N_v} \times N_c$
 		\end{itemize}
@@ -373,8 +384,7 @@ for (int c = 0; c < numClauses; c++) {
 		\item If the problem size is a function of \emph{multiple} variables, experiments should only change one 
 		of such variables to gather valid performance data
 		\item A guided schedule yielded the most balanced load for our computation partition strategy
-		\item TODO
-		\item TODO
+		\item Exploiting the cache and JVM can yield \emph{extremely} good speedup and sizeup efficiencies
 	\end{itemize}
 \end{frame}
 
