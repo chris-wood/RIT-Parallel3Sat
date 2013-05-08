@@ -99,7 +99,7 @@ public class ThreeSatExhaustiveSmp
                     // Handle the formula initialization step (if not already ready in from a file)
                     if (args.length != 1)
                     {
-                        execute(0, numClauses - 1, new IntegerForLoop() 
+                        execute(0, numClauses - 1, new IntegerForLoop()
                         {
                             public void run(int first, int last) throws Exception
                             {

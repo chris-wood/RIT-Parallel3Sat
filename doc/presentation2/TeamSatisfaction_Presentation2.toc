@@ -1,8 +1,8 @@
 \beamer@endinputifotherversion {3.20pt}
 \beamer@sectionintoc {1}{Problem Statement}{3}{0}{1}
-\beamer@sectionintoc {2}{Exhaustive Search Algorithm}{5}{0}{2}
-\beamer@sectionintoc {3}{Advanced Techniques and Heuristics for Parallel SAT Algorithms}{8}{0}{3}
-\beamer@sectionintoc {4}{Parallel Program Design and Demonstration}{11}{0}{4}
-\beamer@sectionintoc {5}{Exhaustive Performance Metrics}{15}{0}{5}
-\beamer@sectionintoc {6}{Lessons Learned and Future Work}{18}{0}{6}
-\beamer@sectionintoc {7}{Questions}{20}{0}{7}
+\beamer@sectionintoc {2}{Exhaustive Search Algorithm}{4}{0}{2}
+\beamer@sectionintoc {3}{Advanced Techniques and Heuristics for Parallel SAT Algorithms}{7}{0}{3}
+\beamer@sectionintoc {4}{Parallel Program Design and Demonstration}{10}{0}{4}
+\beamer@sectionintoc {5}{Exhaustive Performance Metrics}{14}{0}{5}
+\beamer@sectionintoc {6}{Lessons Learned and Future Work}{17}{0}{6}
+\beamer@sectionintoc {7}{Questions}{19}{0}{7}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  5 MAY 2013 00:19
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  7 MAY 2013 22:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1245,61 +1245,58 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
  [3
 
 ]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.09995pt on input line 111.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 111.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 111.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 111.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.09995pt on input line 111.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 111.
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 6.29996pt on input line 111.
- [4
-
-]
 \openout4 = `TeamSatisfaction_Presentation2.vrb'.
 
 
-(./TeamSatisfaction_Presentation2.vrb) [5
+(./TeamSatisfaction_Presentation2.vrb) [4
 
 ]
-<satSolverAlg.pdf, id=106, 348.55219pt x 174.6525pt>
+<satSolverAlg.pdf, id=96, 348.55219pt x 174.6525pt>
 File: satSolverAlg.pdf Graphic file (type pdf)
  <use satSolverAlg.pdf>
 Package pdftex.def Info: satSolverAlg.pdf used on input line 163.
 (pdftex.def)             Requested size: 278.8421pt x 139.72218pt.
 
-[6
+[5
 
  <./satSolverAlg.pdf>]
 \openout4 = `TeamSatisfaction_Presentation2.vrb'.
 
  (./TeamSatisfaction_Presentation2.vrb
+LaTeX Font Info:    Font shape `T1/phv/m/n' will be
+(Font)              scaled to size 8.09995pt on input line 5.
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 5.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 5.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 8.09995pt on input line 5.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 5.
+LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
+(Font)              scaled to size 6.29996pt on input line 5.
 LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <5> not available
 (Font)              Font shape `T1/pcr/b/n' tried instead on input line 11.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <5> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 19.
-) [7
+) [6
 
 ]
-<satDCswap.jpg, id=158, 914.66719pt x 383.93437pt>
+<satDCswap.jpg, id=147, 914.66719pt x 383.93437pt>
 File: satDCswap.jpg Graphic file (type jpg)
  <use satDCswap.jpg>
 Package pdftex.def Info: satDCswap.jpg used on input line 203.
 (pdftex.def)             Requested size: 274.40227pt x 115.1812pt.
- [8
+ [7
 
- <./satDCswap.jpg>] <implication.jpg, id=168, 680.5425pt x 457.71pt>
+ <./satDCswap.jpg>] <implication.jpg, id=157, 680.5425pt x 457.71pt>
 File: implication.jpg Graphic file (type jpg)
 
 <use implication.jpg>
@@ -1309,99 +1306,98 @@ Package pdftex.def Info: implication.jpg used on input line 218.
 Overfull \vbox (17.20418pt too high) detected at line 218
  []
 
-[9
+[8
 
- <./implication.jpg>] <trie.png, id=178, 652.4375pt x 448.67625pt>
+ <./implication.jpg>] <trie.png, id=168, 652.4375pt x 448.67625pt>
 File: trie.png Graphic file (type png)
 
 <use trie.png>
 Package pdftex.def Info: trie.png used on input line 232.
 (pdftex.def)             Requested size: 130.48518pt x 89.73366pt.
- [10
+ [9
 
- <./trie.png (PNG copy)>] [11
+ <./trie.png (PNG copy)>] [10
 
 ]
-<teamdesign.jpg, id=196, 388.45125pt x 343.2825pt>
+<teamdesign.jpg, id=186, 388.45125pt x 343.2825pt>
 File: teamdesign.jpg Graphic file (type jpg)
  <use teamdesign.jpg>
-Package pdftex.def Info: teamdesign.jpg used on input line 277.
+Package pdftex.def Info: teamdesign.jpg used on input line 276.
 (pdftex.def)             Requested size: 194.22514pt x 171.64082pt.
 
-[12
+[11
 
- <./teamdesign.jpg>] <design.jpg, id=206, 532.99126pt x 662.475pt>
+ <./teamdesign.jpg>] <design.jpg, id=196, 532.99126pt x 662.475pt>
 File: design.jpg Graphic file (type jpg)
 
 <use design.jpg>
-Package pdftex.def Info: design.jpg used on input line 286.
+Package pdftex.def Info: design.jpg used on input line 285.
 (pdftex.def)             Requested size: 154.5635pt x 192.11282pt.
- [13
+ [12
 
- <./design.jpg>] [14
+ <./design.jpg>] [13
 
 ]
-<ge_speed_4.png, id=226, 415.5525pt x 370.38374pt>
-File: ge_speed_4.png Graphic file (type png)
- <use ge_speed_4.png>
-Package pdftex.def Info: ge_speed_4.png used on input line 330.
+<e_speed_4.png, id=216, 415.5525pt x 370.38374pt>
+File: e_speed_4.png Graphic file (type png)
+ <use e_speed_4.png>
+Package pdftex.def Info: e_speed_4.png used on input line 329.
 (pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
 
-<ge_speed_3.png, id=227, 415.5525pt x 370.38374pt>
-File: ge_speed_3.png Graphic file (type png)
- <use ge_speed_3.png>
-Package pdftex.def Info: ge_speed_3.png used on input line 330.
+<e_speed_3.png, id=217, 415.5525pt x 370.38374pt>
+File: e_speed_3.png Graphic file (type png)
+ <use e_speed_3.png>
+Package pdftex.def Info: e_speed_3.png used on input line 329.
 (pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
 
-<ge_speed_2.png, id=228, 415.5525pt x 370.38374pt>
-File: ge_speed_2.png Graphic file (type png)
- <use ge_speed_2.png>
-Package pdftex.def Info: ge_speed_2.png used on input line 330.
+<e_speed_2.png, id=218, 415.5525pt x 370.38374pt>
+File: e_speed_2.png Graphic file (type png)
+ <use e_speed_2.png>
+Package pdftex.def Info: e_speed_2.png used on input line 329.
 (pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
 
-<ge_speed_1.png, id=229, 415.5525pt x 370.38374pt>
-File: ge_speed_1.png Graphic file (type png)
- <use ge_speed_1.png>
-Package pdftex.def Info: ge_speed_1.png used on input line 330.
+<e_speed_1.png, id=219, 415.5525pt x 370.38374pt>
+File: e_speed_1.png Graphic file (type png)
+ <use e_speed_1.png>
+Package pdftex.def Info: e_speed_1.png used on input line 329.
 (pdftex.def)             Requested size: 103.88786pt x 92.5957pt.
+ [14
 
-[15
-
- <./ge_speed_4.png (PNG copy)> <./ge_speed_3.png (PNG copy)> <./ge_speed_2.png 
-(PNG copy)> <./ge_speed_1.png (PNG copy)>]
-<ge_size_4.png, id=238, 427.5975pt x 370.38374pt>
-File: ge_size_4.png Graphic file (type png)
- <use ge_size_4.png>
-Package pdftex.def Info: ge_size_4.png used on input line 360.
+ <./e_speed_4.png (PNG copy)> <./e_speed_3.png (PNG copy)> <./e_speed_2.png (PN
+G copy)> <./e_speed_1.png (PNG copy)>]
+<e_size_4.png, id=228, 427.5975pt x 370.38374pt>
+File: e_size_4.png Graphic file (type png)
+ <use e_size_4.png>
+Package pdftex.def Info: e_size_4.png used on input line 359.
 (pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
 
-<ge_size_3.png, id=239, 427.5975pt x 370.38374pt>
-File: ge_size_3.png Graphic file (type png)
- <use ge_size_3.png>
-Package pdftex.def Info: ge_size_3.png used on input line 360.
+<e_size_3.png, id=229, 427.5975pt x 370.38374pt>
+File: e_size_3.png Graphic file (type png)
+ <use e_size_3.png>
+Package pdftex.def Info: e_size_3.png used on input line 359.
 (pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
 
-<ge_size_2.png, id=240, 427.5975pt x 370.38374pt>
-File: ge_size_2.png Graphic file (type png)
- <use ge_size_2.png>
-Package pdftex.def Info: ge_size_2.png used on input line 360.
+<e_size_2.png, id=230, 427.5975pt x 370.38374pt>
+File: e_size_2.png Graphic file (type png)
+ <use e_size_2.png>
+Package pdftex.def Info: e_size_2.png used on input line 359.
 (pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
 
-<ge_size_1.png, id=241, 427.5975pt x 370.38374pt>
-File: ge_size_1.png Graphic file (type png)
- <use ge_size_1.png>
-Package pdftex.def Info: ge_size_1.png used on input line 360.
+<e_size_1.png, id=231, 427.5975pt x 370.38374pt>
+File: e_size_1.png Graphic file (type png)
+ <use e_size_1.png>
+Package pdftex.def Info: e_size_1.png used on input line 359.
 (pdftex.def)             Requested size: 106.89911pt x 92.5957pt.
- [16
+ [15
 
- <./ge_size_4.png (PNG copy)> <./ge_size_3.png (PNG copy)> <./ge_size_2.png (PN
-G copy)> <./ge_size_1.png (PNG copy)>] [17
+ <./e_size_4.png (PNG copy)> <./e_size_3.png (PNG copy)> <./e_size_2.png (PNG c
+opy)> <./e_size_1.png (PNG copy)>] [16
+
+] [17
 
 ] [18
 
 ] [19
-
-] [20
 
 ]
 \tf@nav=\write7
@@ -1413,23 +1409,23 @@ G copy)> <./ge_size_1.png (PNG copy)>] [17
 \tf@snm=\write9
 \openout9 = `TeamSatisfaction_Presentation2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 415.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 415.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 408.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 408.
 
 (./TeamSatisfaction_Presentation2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 415.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 415.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 408.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 408.
 Package rerunfilecheck Info: File `TeamSatisfaction_Presentation2.out' has not 
 changed.
 (rerunfilecheck)             Checksum: C233752DA790DD57F3F86A97B211BA2C;462.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 415.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 408.
  ) 
 Here is how much of TeX's memory you used:
- 19570 strings out of 493488
- 352148 string characters out of 3141326
- 696515 words of memory out of 3000000
- 22284 multiletter control sequences out of 15000+200000
- 100171 words of font info for 149 fonts, out of 3000000 for 9000
+ 19561 strings out of 493488
+ 352045 string characters out of 3141326
+ 695517 words of memory out of 3000000
+ 22282 multiletter control sequences out of 15000+200000
+ 97187 words of font info for 144 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  49i,17n,53p,419b,1154s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -1444,10 +1440,10 @@ t/fonts/type1/urw/courier/ucrro8a.pfb></usr/local/texlive/2012/texmf-dist/fonts
 urw/helvetic/uhvr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/hel
 vetic/uhvro8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/symbol/us
 yr.pfb>
-Output written on TeamSatisfaction_Presentation2.pdf (20 pages, 757371 bytes).
+Output written on TeamSatisfaction_Presentation2.pdf (19 pages, 768959 bytes).
 PDF statistics:
- 338 PDF objects out of 1000 (max. 8388607)
- 259 compressed objects within 3 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 328 PDF objects out of 1000 (max. 8388607)
+ 251 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

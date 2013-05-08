@@ -63,7 +63,7 @@ breaklines=true}
 
 \section{Problem Statement}
 \begin{frame}
-	\frametitle{Boolean Satisfiability}
+	\frametitle{3-SAT Problem}
 
 	Boolean satisfiability is an $NP$-complete decision problem defined as:
 	\begin{align*}
@@ -72,10 +72,10 @@ breaklines=true}
 
 	\medskip
 
-	\textbf{Input}: Boolean formula $\phi_n$ on $n$ variables.
+	\textbf{Input}: 3-CNF Boolean formula $\phi_n$ on $n$ variables.
 	
 	\begin{align*}
-		\phi_5 = (x_1 \lor x_2 \lor \lnot x_3) \lor \lnot x_4 \land x_5 \land (\lnot x_2 \lor x_3 \land (x_4 \land x_1))
+		\phi_3 = (x_1 \lor x_2 \lor \lnot x_3) \land (\lnot x_1 \lor x_2 \lor x_3) \land (\lnot x_1 \lor x_2 \lor \lnot x_3)
 	\end{align*}
 
 	\medskip 
@@ -93,22 +93,22 @@ breaklines=true}
 
 % TODO: give a sample circuit of the problem
 
-\begin{frame}
-	\frametitle{$3$-$SAT \in NP$}
-	\begin{itemize}
-		\item A special case of $SAT$ that fixes the format of $\phi_n$.
-		\item Each input formula is in $3$-$CNF$ form:
-		\begin{itemize}
-			\item The conjunction (Boolean AND) of arbitrarily many clauses, 
-			where each clause is the disjunction (Boolean OR) of exactly three literals 
-			(a Boolean variable or its negation).
-			\begin{align*}
-				(x_1 \lor x_2 \lor \lnot x_3) \land (\lnot x_1 \lor x_2 \lor x_3) \land (\lnot x_1 \lor x_2 \lor \lnot x_3)
-			\end{align*}
-		\end{itemize}
-		\item $SAT$ reduces to $3$-$SAT$, so $3$-$SAT \in NP$.
-	\end{itemize}
-\end{frame}
+% \begin{frame}
+% 	\frametitle{$3$-$SAT \in NP$}
+% 	\begin{itemize}
+% 		\item A special case of $SAT$ that fixes the format of $\phi_n$.
+% 		\item Each input formula is in $3$-$CNF$ form:
+% 		\begin{itemize}
+% 			\item The conjunction (Boolean AND) of arbitrarily many clauses, 
+% 			where each clause is the disjunction (Boolean OR) of exactly three literals 
+% 			(a Boolean variable or its negation).
+% 			\begin{align*}
+% 				(x_1 \lor x_2 \lor \lnot x_3) \land (\lnot x_1 \lor x_2 \lor x_3) \land (\lnot x_1 \lor x_2 \lor \lnot x_3)
+% 			\end{align*}
+% 		\end{itemize}
+% 		\item $SAT$ reduces to $3$-$SAT$, so $3$-$SAT \in NP$.
+% 	\end{itemize}
+% \end{frame}
 
 % TODO: give example of 3-CNF formula
 % Introduce the team members.
@@ -150,7 +150,7 @@ breaklines=true}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Exhaustive Search for $3$-$SAT$ - A \emph{Very Satisfiable} Example!}
+	\frametitle{Exhaustive Search for $3$-$SAT$ - An \emph{Exhaustive} Example!}
 \textbf{Input}: $\phi_5 = (\lnot X_1 \lor \lnot X_2 \lor \lnot X_3) \land (X_3 \lor \lnot X_4 \lor \lnot X_5)$ \\
 \textbf{Output}: Yes \\ 
 \textbf{Note}: no early termination once a satisfiable solution is found
@@ -248,7 +248,6 @@ for (int c = 0; c < numClauses; c++) {
 		\item \emph{Result parallelism} for exhaustive program and \emph{agenda parallelism} for decision program
 		\item Split the evaluation of each variable configuration among every thread
 		\item Reduce the final result into the main thread
-		\item Balance the load using a guided schedule
 	\end{itemize}
 \end{frame}
 
@@ -306,24 +305,24 @@ for (int c = 0; c < numClauses; c++) {
 	\vspace{-1em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_speed_4.png}
+	\includegraphics[scale = 0.25]{e_speed_4.png}
 	\end{figure}
 	\vspace{-2em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_speed_3.png}
+	\includegraphics[scale = 0.25]{e_speed_3.png}
 	\end{figure}
 \column{.5\textwidth}
 \begin{minipage}[c][.6\textheight][c]{\linewidth}
 	\vspace{-1em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_speed_2.png}
+	\includegraphics[scale = 0.25]{e_speed_2.png}
 	\end{figure}
 	\vspace{-2em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_speed_1.png}
+	\includegraphics[scale = 0.25]{e_speed_1.png}
 	\end{figure}
 \end{minipage}
 \end{columns}
@@ -336,24 +335,24 @@ for (int c = 0; c < numClauses; c++) {
 	\vspace{-1em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_size_4.png}
+	\includegraphics[scale = 0.25]{e_size_4.png}
 	\end{figure}
 	\vspace{-2em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_size_3.png}
+	\includegraphics[scale = 0.25]{e_size_3.png}
 	\end{figure}
 \column{.5\textwidth}
 \begin{minipage}[c][.6\textheight][c]{\linewidth}
 	\vspace{-1em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_size_2.png}
+	\includegraphics[scale = 0.25]{e_size_2.png}
 	\end{figure}
 	\vspace{-2em}
 	\begin{figure}
 	\centering
-	\includegraphics[scale = 0.25]{ge_size_1.png}
+	\includegraphics[scale = 0.25]{e_size_1.png}
 	\end{figure}
 \end{minipage}
 \end{columns}
@@ -362,12 +361,7 @@ for (int c = 0; c < numClauses; c++) {
 \begin{frame}
 	\frametitle{Performance Observations}
 	\begin{itemize}
-		\item We achieved \emph{superlinear} speedups and sizeups using a guided schdule with varying the number of variables
-		\item Exaustive 3-SAT problems have implicit unbalanced loads
-		\begin{itemize}
-			\item A guided schedule yielded the best results for speedup and sizeup
-			\item A dynamic schedule caused a \emph{significant} amount of overhead
-		\end{itemize}
+		\item We achieved \emph{superlinear} speedups and sizeups when varying the number of variables
 		\item Our parallel programs achieve better performance when the number of variables was varied:
 		\begin{itemize}
 			\item The problem size $N = f(N_v, N_c) = 2^{N_v} \times N_c$
@@ -383,7 +377,6 @@ for (int c = 0; c < numClauses; c++) {
 	\begin{itemize}
 		\item If the problem size is a function of \emph{multiple} variables, experiments should only change one 
 		of such variables to gather valid performance data
-		\item A guided schedule yielded the most balanced load for our computation partition strategy
 		\item Exploiting the cache and JVM can yield \emph{extremely} good speedup and sizeup efficiencies
 	\end{itemize}
 \end{frame}
